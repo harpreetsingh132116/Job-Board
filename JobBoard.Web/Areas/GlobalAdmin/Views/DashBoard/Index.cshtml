@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 style="text-align:center">Dashboard</h2>
+
+@Html.ActionLink("Region Master", "Index", "RegionsMaster")&nbsp; &nbsp;
+@Html.ActionLink("Manage Trainings", "Index", "Trainings")&nbsp; &nbsp;
+@Html.ActionLink("Manage Jobs", "Index", "ManageJobs")&nbsp; &nbsp;
+@Html.ActionLink("Manage Users", "Index", "ManageUsers")&nbsp; &nbsp;
+@Html.ActionLink("Job Time Mapping", "JobTimeMapping", "ManageJobs")&nbsp; &nbsp;
+@Html.ActionLink("Job Time And Emp Mapping", "JobTimeAndEmpMapping", "ManageJobs")&nbsp; &nbsp;
+@Html.ActionLink("Assigned Jobs", "Index", "AssignedJobs")&nbsp; &nbsp;
+@Html.ActionLink("JobsAssignedToEmp", "JobsAssignedToEmp", "ManageJobs")

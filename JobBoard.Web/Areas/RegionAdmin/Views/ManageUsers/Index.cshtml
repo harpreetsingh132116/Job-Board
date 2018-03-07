@@ -1,0 +1,158 @@
+﻿
+@{
+    /**/
+
+    Layout = "~/Areas/RegionAdmin/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Index";
+
+}
+
+<div class="JobPortal-aboutUsPage darkbg">
+    <div class="container">
+        <h2>Manage Users</h2>
+        <div class="JobPortal-aboutUsPage">
+            <input type="button" name="btnAddNew" id="btnAddNew" value="Add New User" />
+            @using (Html.BeginForm("UploadExcel", "ManageUsers", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div class="form-horizontal">
+            <div class="form-group">
+                <div class="control-label col-md-2">Excel:</div>
+                <div class="col-md-10">
+                    <input type="file" id="FileUpload" name="FileUpload" class="" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Upload" id="btnSubmit" class="btn btn-primary" />
+                </div>
+            </div>
+        </div>
+}
+            <div class="clearfix"></div>
+            <div>
+                <div id="dvToAcademyTeams"></div>
+            </div>
+            <div class="clearfix"></div>
+            <div id="myModal" title="Update Training" class="AddPoll">
+                <div class="modal-content1">
+                    <div class="modal-header1">
+                        <h4 class="modal-title" id="myModalLabel"><span id="spCaption"></span></h4>
+                    </div>
+                    <div class="modal-body pollPopupContent">
+                        <div class="PollRow">
+                            <input type="hidden" id="hdnuserId" />
+                        </div>
+                        <div class="PollRow">
+                            <div class="PollLeft">Region:</div>
+                            <div class="PollRight">
+                                <select id="drpRegion">
+                                    <option value="0">Select Region</option>
+                                </select>
+                                <span id="spdrpRegion" style="color:red;display:none">Select Region</span>
+                            </div>
+                        </div>
+                        <div class="PollRow">
+
+                            <div class="PollLeft">User Name:</div>
+                            <div class="PollRight">
+                                <input id="txtuser" type="text" />
+                                <span id="sptxtuser" style="color:red;display:none">Enter User Name</span>
+                            </div>
+                        </div>
+
+                        <div class="PollRow">
+                            <div class="PollLeft">First Name</div>
+                            <div class="PollRight">
+                                <input id="txtfirst" type="text" />
+                                <span id="sptxtfirst" style="color:red;display:none">Enter First Name</span>
+                            </div>
+                        </div>
+                        <div class="PollRow">
+                            <div class="PollLeft">Last Name</div>
+                            <div class="PollRight">
+                                <input id="txtlastName" type="text" />
+                                <span id="sptxtlastName" style="color:red;display:none">Enter Last Name</span>
+                            </div>
+                        </div>
+
+                        <div class="PollRow">
+                            <div class="PollLeft">Email Address</div>
+                            <div class="PollRight">
+                                <input id="txtEmailAddress" type="text" />
+                                <span id="sptxtEmailAddress" style="color:red;display:none">Enter Email address</span>
+                            </div>
+                        </div>
+
+
+                        <div class="PollRow">
+                            <div class="PollLeft">User Password</div>
+                            <div class="PollRight">
+                                <input id="txtuserpassword" type="text" />
+                                <span id="sptxtuserpassword" style="color:red;display:none">Enter Password</span>
+                            </div>
+                        </div>
+
+                        <div class="PollRow">
+                            <div class="PollLeft">Phone Number</div>
+                            <div class="PollRight">
+                                <input id="txtPhonenumber" type="text" />
+                                <span id="sptxtPhonenumber" style="color:red;display:none">Enter Phone Number</span>
+                            </div>
+                        </div>
+
+                        <div class="PollRow">
+                            <div class="PollLeft">IsActive</div>
+                            <div class="PollRight"><input id="ChkIsActive" type="checkbox" /> </div>
+                        </div>
+                        <div class="PollRow">
+                            <div class="PollLeft">Postion:</div>
+                            <div class="PollRight">
+                                <select id="drpuserPosition">
+                                    <option value="0">Select user Position</option>
+                                    <option value="General Foreman">General Foreman</option>
+                                    <option value="Foreman">Foreman</option>
+                                    <option value="Journeyman">Journeyman</option>
+                                    <option value="Apprentice">Apprentice</option>
+                                    <option value="New Hire 0-3 Months">New Hire 0-3 Months</option>
+                                </select>
+                                <span id="spdrpuserPosition" style="color:red;display:none">Select User Position</span>
+                            </div>
+                        </div>
+                        <div class="PollRow">
+                            <div class="PollLeft">Training:</div>
+                            <div class="PollRight">
+                                <div id="checkboxtraning" style="max-height:70px; overflow:scroll;">
+
+
+                                </div>
+                                <span id="spcheckboxtraning" style="color:red;display:none">Select trainings</span>
+
+                            </div>
+
+                            <div class="PollRow">
+                                <div class="PollLeft">Roles:</div>
+                                <div class="PollRight">
+                                    <div id="checkboxrolls" style="max-height:70px; overflow:scroll;"></div>
+                                    <span id="spcheckboxrolls" style="color:red;display:none">Select Roles</span>
+                                </div>
+
+
+                                <div class="PollRow">
+                                    <div class="PollButton">
+                                        <button type="button" onclick="UpdateAcademyTeamById();" id="btn_AddNewAcademy" class="btn btn-primary">Submit</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+@Html.Partial("_ListRefrences")
+
+<script src="~/Areas/RegionAdmin/Scripts/ManageUsers.js"></script>

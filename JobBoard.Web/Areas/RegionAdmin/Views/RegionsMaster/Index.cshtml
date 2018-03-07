@@ -1,0 +1,55 @@
+﻿
+@{
+    /**/
+
+    Layout = "~/Areas/RegionAdmin/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Index";
+
+}
+
+<div class="JobPortal-aboutUsPage darkbg">
+    <div class="container">
+        <h2>Manage Regions</h2>
+        <div class="JobPortal-aboutUsPage">
+            <input type="button" name="btnAddNew" id="btnAddNew" value="Add New Region" />
+            <div class="clearfix"></div>
+            <div>
+                <div id="dvToAcademyTeams"></div>
+            </div>
+            <div class="clearfix"></div>
+            <div id="myModal" title="Insert/Update Region" class="AddPoll">
+                <div class="modal-content1">
+                    <div class="modal-header1">
+                        <h4 class="modal-title" id="myModalLabel">Insert/Update Region</h4>
+                    </div>
+                    <div class="modal-body pollPopupContent">
+                        <div class="PollRow">
+                            <input type="hidden" id="hdnRegionId" />
+                        </div>
+                        <div class="PollRow">
+                            <div class="PollLeft">Region Name:</div>
+                            <div class="PollRight"><input id="txtRegion" type="text" /> </div>
+                            <div class="PollRight"><span id="sptxtRegion" style="color:red;display:none">Enter Region Name</span> </div>
+                        </div>
+
+                        <div class="PollRow">
+                            <div class="PollLeft">Region Short Name:</div>
+                            <div class="PollRight"><input id="txtRegionShortName" maxlength="2" type="text" /> </div>
+                            <div class="PollRight"><span id="sptxtRegionShortName" style="color:red;display:none">Enter Region Short Name</span> </div>
+                        </div>
+
+                        <div class="PollRow">
+                            <div class="PollButton">
+                                <button type="button" onclick="UpdateAcademyTeamById();" id="btn_AddNewAcademy" class="btn btn-primary">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@Html.Partial("_ListRefrences")
+
+<script src="~/Areas/RegionAdmin/Scripts/ManageRegions.js"></script>

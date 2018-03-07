@@ -1,0 +1,3548 @@
+﻿@import url('animate.css');
+body {
+  line-height: 22px;
+  padding: 0;
+  background-image: url("Images/bg.jpg");
+  background-repeat: repeat;
+}
+.navbar-nav > li.userName {
+  color: #fff;
+  font-size: 16px;
+}
+/*--Mixins--*/
+.btn-primary {
+  background: #2757bd;
+  color: #fff;
+  border-radius: 0;
+  font-weight: bold;
+}
+.nopadding {
+  padding: 0;
+}
+.heading {
+  margin-bottom: 50px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 35px;
+  font-weight: bold;
+}
+.borderImg {
+  border: 10px solid #fff;
+  box-shadow: 1px 1px 5px #ccc;
+  width: 100%;
+}
+.padding10 {
+  padding: 10px;
+}
+/*----------Common----------*/
+section {
+  margin: 19px 0;
+  float: left;
+  width: 100%;
+}
+.carousel-caption {
+  font-size: 28px;
+  text-transform: uppercase;
+  font-weight: bold;
+  display: none;
+}
+.navbar-inverse .navSection > li > a:hover,
+.navbar-inverse .navSection > li > a.active {
+  border-bottom: 2px solid #2757bd;
+}
+.navbar-inverse .navSection > li > a:hover,
+.navbar-inverse .navSection > li.active > a {
+  border-bottom: 2px solid #2757bd;
+}
+.width100 {
+  width: 100%;
+}
+/*----------Login----------*/
+#loginLink {
+  background: #48c31d;
+  color: #fff;
+  /*font-weight:bold;*/
+  font-weight: normal;
+  padding: 8px 15px;
+  margin-right: 5px;
+}
+#registerLink {
+  background: #7a7a7a;
+  color: #fff;
+  /*font-weight:bold;*/
+  font-weight: normal;
+  padding: 8px 15px;
+}
+.form-control {
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  max-width: 100% !important;
+}
+hr {
+  float: left;
+  width: 100%;
+}
+/*----------Header----------*/
+.socialIcons {
+  width: 100%;
+  display: inline-block;
+  position: relative;
+}
+.socialIcons li {
+  float: right;
+}
+.socialIcons li a {
+  padding: 10px 5px;
+}
+/*.socialIcons li.oldsitelink {
+  position: absolute;
+  width: 87%; top: 4px;
+}
+
+.navbar-inverse .socialIcons.navbar-nav li.oldsitelink a{ color: #94c4ff;
+    font-size: 13px; text-decoration:underline;}*/
+.navbar-inverse {
+  background-color: transparent;
+  border: none;
+}
+.navbar-inverse .navbar-nav > li > a {
+  color: #fff;
+  padding-top: 5px;
+  font-size: 16px;
+}
+.carousel-caption {
+  bottom: 25%;
+}
+.carousel-control {
+  z-index: 9999;
+}
+.nav.navbar-nav.navSection > li > a {
+  line-height: 26px;
+  padding-bottom: 5px;
+}
+/*----------Footer----------*/
+.BJJ-footerSection {
+  background: #000;
+  padding: 10px 0;
+  position: relative;
+  color: #fff;
+}
+.BJJ-footerSection h3 {
+  font-size: 19px;
+  text-transform: uppercase;
+}
+.BJJ-footerSection ul {
+  padding: 0;
+}
+.BJJ-footerSection li {
+  list-style: none;
+  padding: 5px 0;
+}
+.BJJ-footerSection li a {
+  color: #fff;
+}
+.copyright {
+  background: #eee;
+  color: #000;
+  text-align: center;
+  padding: 10px 0;
+  z-index: 555;
+  position: relative;
+  margin-bottom: 0;
+}
+footer {
+  float: left;
+  width: 100%;
+}
+/*----------HomePage----------*/
+.BJJ-homePage {
+  /*--Search Section--*/
+  /*--Event Section--*/
+  /*--User Role--*/
+  /*--Feature Section--*/
+  /*--About Section--*/
+  /*--Message--*/
+}
+.BJJ-homePage .BJJ-bannerSection {
+  position: relative;
+  background-size: cover;
+  display: block;
+  overflow: hidden;
+  top: 0;
+  z-index: 0;
+  width: 100%;
+}
+.BJJ-homePage .videoBanner {
+  width: 100%;
+  height: 550px;
+}
+.BJJ-homePage .overlay {
+  background: #000;
+  opacity: 0.7;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.BJJ-homePage h2 {
+  margin-bottom: 50px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 35px;
+  font-weight: bold;
+  padding: 35px 0 0;
+}
+.BJJ-homePage .BJJ-searchSection {
+  position: absolute;
+  top: 35%;
+  width: 100%;
+  text-align: center;
+  left: 0;
+}
+.BJJ-homePage .BJJ-searchSection h1 {
+  color: white;
+  padding-bottom: 30px ;
+  font-weight: bold;
+}
+.BJJ-homePage .BJJ-searchSection input[type=text] {
+  /*width:100%;*/
+  width: 86%;
+  max-width: 90%;
+  padding: 10px;
+  border: none;
+  border-radius: 0;
+}
+.BJJ-homePage .BJJ-searchSection a {
+  background: #2757bd;
+  color: #fff;
+  border-radius: 0;
+  font-weight: bold;
+}
+.BJJ-homePage .BJJ-searchSection .BJJ-searchBtn {
+  border: none;
+  border-radius: 0;
+  padding: 7px 14px;
+  margin: 0px 0 0 -24px;
+  width: 74px;
+}
+.BJJ-homePage .BJJ-searchSection .searchBlock {
+  margin: auto;
+  width: 55%;
+}
+.BJJ-homePage .BJJ-upcomingEventsSection {
+  position: relative;
+  /*background:@white;*/
+  display: block;
+}
+.BJJ-homePage .BJJ-upcomingEventsSection .owl-dots {
+  display: none;
+}
+.BJJ-homePage .BJJ-upcomingEventsSection .owl-nav .owl-next {
+  right: -48px;
+  position: absolute;
+  top: 30%;
+  background-color: rgba(0, 0, 0, 0);
+  background-position: -29px 0 !important;
+  text-indent: -9999px;
+  background-image: url('Images/slider-arrow.png') !important;
+  height: 78px;
+  width: 34px;
+  display: inline-block;
+  cursor: pointer;
+  opacity: 0.7;
+}
+.BJJ-homePage .BJJ-upcomingEventsSection .owl-nav .owl-prev {
+  left: -48px;
+  position: absolute;
+  top: 30%;
+  background-color: rgba(0, 0, 0, 0);
+  background-image: url('Images/slider-arrow.png') !important;
+  text-indent: -9999px;
+  height: 78px;
+  width: 34px;
+  display: inline-block;
+  cursor: pointer;
+  opacity: 0.7;
+}
+.BJJ-homePage .BJJ-upcomingEventsSection .owl-nav .owl-next:hover {
+  opacity: 1;
+}
+.BJJ-homePage .BJJ-upcomingEventsSection .owl-nav .owl-prev:hover {
+  opacity: 1;
+}
+.BJJ-homePage .BJJ-upcomingEventsSection .owl-item {
+  padding-top: 0;
+  margin-bottom: 20px;
+  min-height: 180px;
+  position: relative;
+}
+.BJJ-homePage .BJJ-upcomingEventsSection .owl-item .finished {
+  background: grey!important;
+}
+.BJJ-homePage .BJJ-upcomingEventsSection .owl-item .item {
+  /*box-shadow:0px 0px 6px #ccc;*/
+  padding: 0;
+  /*background:#2757bd; min-height:220px;*/
+  min-height: 236px;
+  border: 1px dashed #cecece;
+}
+.BJJ-homePage .BJJ-upcomingEventsSection .owl-item .whiteBg {
+  /*background: #fff;*/
+  display: inline-block;
+  width: 100%;
+}
+.BJJ-homePage .BJJ-upcomingEventsSection .owl-item img {
+  width: auto;
+  height: 150px;
+  margin: auto;
+  display: block;
+  padding: 15px;
+}
+.BJJ-homePage .BJJ-upcomingEventsSection .owl-item .expectedDate {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: green;
+  color: #fff;
+  font-weight: bold;
+  padding: 0px 3px;
+  font-size: 12px;
+}
+.BJJ-homePage .BJJ-upcomingEventsSection .owl-item .BJJ-eventHeading {
+  padding: 0px 0 0px 10px;
+  /*color:#fff;*/
+  color: #000;
+  font-size: 12px;
+}
+.BJJ-homePage .BJJ-upcomingEventsSection .owl-item .BJJ-eventHeading .glyphicon {
+  /*color:#fff;*/
+  color: #000;
+  font-size: 11px;
+  padding-right: 3px;
+}
+.BJJ-homePage .BJJ-upcomingEventsSection .owl-item h4 {
+  text-transform: capitalize;
+  margin: 0;
+  font-size: 14px;
+  line-height: 18px;
+  text-align: left;
+}
+.BJJ-homePage .BJJ-upcomingEventsSection .owl-item h4 a {
+  /*color:#fff;*/
+  color: #000;
+  font-weight: bold;
+  text-align: center;
+  display: inline-block;
+  width: 100%;
+}
+.BJJ-homePage .BJJ-upcomingEventsSection .owl-item:hover {
+  background: #323232 !important;
+}
+.BJJ-homePage .BJJ-upcomingEventsSection .owl-item:hover h4 a {
+  color: #fff;
+}
+.BJJ-homePage .BJJ-upcomingEventsSection .owl-item:hover .list-title {
+  color: #fff;
+}
+.BJJ-homePage .BJJ-upcomingEventsSection .owl-item:hover .glyphicon {
+  color: #fff;
+}
+.BJJ-homePage .owl-theme .owl-nav .disabled {
+  opacity: 0.5 !important;
+}
+.BJJ-homePage .owl-theme .owl-nav [class*="owl-"]:hover {
+  background-color: rgba(0, 0, 0, 0) !important;
+}
+.BJJ-homePage .BJJ-userRoleSection {
+  position: relative;
+  background: #eee;
+}
+.BJJ-homePage .BJJ-userRoleSection .BJJ-greyBox {
+  background: #fff;
+  border: 1px solid #ccc;
+  text-align: center;
+  /*padding:30px 20px;*/
+  padding: 0 0 30px;
+}
+.BJJ-homePage .BJJ-userRoleSection a {
+  background: #2757bd;
+  color: #fff;
+  border-radius: 0;
+  font-weight: bold;
+}
+.BJJ-homePage .BJJ-userRoleSection h3 {
+  font-weight: bold;
+  font-size: 22px;
+  text-transform: uppercase;
+}
+.BJJ-homePage .BJJ-additionalFeaturesSection {
+  position: relative;
+  background: #fff;
+}
+.BJJ-homePage .BJJ-additionalFeaturesSection .BJJ-greyBox {
+  background: #fff;
+  border: 1px solid #ccc;
+  text-align: left;
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+.BJJ-homePage .BJJ-additionalFeaturesSection .BJJ-greyBox h3 {
+  padding: 10px 10px 0;
+  font-size: 22px;
+}
+.BJJ-homePage .BJJ-additionalFeaturesSection .BJJ-greyBox p {
+  padding: 0 10px;
+}
+.BJJ-homePage .BJJ-aboutUs {
+  /*background:url('Images/aboutBG.png') no-repeat 800px 0 @blue;*/
+  background: url('Images/aboutBG.png') no-repeat #111213;
+  background-position: right center;
+  position: relative;
+  color: #fff;
+  float: left;
+  width: 100%;
+}
+.BJJ-homePage .BJJ-aboutUs .BJJ-pollingBooth {
+  padding-left: 50px;
+  padding-bottom: 46px;
+  /*padding-top: 46px;*/
+  padding-top: 14px;
+}
+.BJJ-homePage .BJJ-aboutUs .BJJ-transparentBtn {
+  color: #fff;
+  border-radius: 0;
+  background: transparent;
+  border: 2px solid #fff;
+  padding: 5px 15px;
+  margin: 10px;
+  font-weight: bold;
+  width: 136px;
+}
+.BJJ-homePage .BJJ-aboutUs .AboutPanelBg {
+  background: #2757bd;
+  display: inline-block;
+  padding: 27px;
+}
+.BJJ-homePage .BJJ-aboutUs .AboutPanelBg::before {
+  background: #2757bd;
+  content: "";
+  height: 100%;
+  left: -100%;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.BJJ-homePage .BJJ-aboutUs section {
+  margin-bottom: 0 !important;
+  margin-top: 0 !important;
+}
+.BJJ-homePage .col-md-7.col-sm-7.AboutPanelsection {
+  padding: 0 !important;
+}
+.BJJ-homePage .col-md-6.col-sm-6.AboutPanelsection {
+  padding: 0 !important;
+}
+.BJJ-homePage .BJJ-Message {
+  position: relative;
+  background: #fff;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 20px 0;
+}
+.BJJ-homePage .BJJ-Message h3 {
+  font-weight: bold;
+}
+.BJJ-homePage .BJJ-Message a {
+  background: #2757bd;
+  color: #fff;
+  border-radius: 0;
+  font-weight: bold;
+}
+/*----------InnerPage----------*/
+.BJJ-InnerNav {
+  background: #000;
+  border-radius: 0;
+  margin-bottom: 0;
+  box-shadow: 2px 2px 5px #535353;
+}
+/*----------About Us----------*/
+.BJJ-aboutUsPage {
+  /*margin-bottom:50px;*/
+}
+.BJJ-aboutUsPage .Innerheading {
+  background: url('Images/aboutImg.jpg') top center no-repeat;
+  height: 223px;
+  margin-bottom: 50px;
+  text-align: center;
+}
+.BJJ-aboutUsPage .Innerheading span {
+  color: #fff;
+}
+.BJJ-aboutUsPage .Innerheading span a {
+  color: #fff;
+}
+.BJJ-aboutUsPage h2 {
+  font-size: 34px;
+  /*color:@white;*/
+  color: #000;
+  text-align: center;
+  /*padding-top:90px;*/
+  margin: 0;
+  text-transform: uppercase;
+}
+.BJJ-aboutUsPage h3 {
+  margin: 50px;
+  margin-bottom: 50px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 35px;
+  font-weight: bold;
+}
+.BJJ-aboutUsPage .BJJ-aboutContent {
+  margin-bottom: 50px;
+  float: left;
+  width: 100%;
+}
+.BJJ-aboutUsPage .BJJ-aboutContent ul li {
+  display: inline-block;
+  border: 10px solid #eee;
+  position: relative;
+  width: 245px;
+  height: 245px;
+  margin: 0 5%;
+  background: #eee;
+  border-radius: 50%;
+}
+.BJJ-aboutUsPage .BJJ-aboutContent ul li span {
+  text-align: center;
+  font-size: 22px;
+  font-weight: bold;
+  width: 100%;
+  text-transform: uppercase;
+  position: absolute;
+  bottom: -38px;
+}
+.BJJ-aboutUsPage .BJJ-aboutContent ul li.feature1 {
+  background: url('Images/fighter.jpg') top center no-repeat;
+  height: 245px;
+}
+.BJJ-aboutUsPage .BJJ-aboutContent ul li.feature2 {
+  background: url('Images/organiser.jpg') top center no-repeat;
+  height: 245px;
+}
+.BJJ-aboutUsPage .BJJ-aboutContent ul li.feature3 {
+  background: url('Images/coach.jpg') top center no-repeat;
+  height: 245px;
+}
+.BJJ-aboutUsPage .BJJ-aboutBtn {
+  text-align: center;
+  width: 100%;
+  margin-top: 50px;
+}
+.BJJ-aboutUsPage .BJJ-aboutBtn .btn-primary {
+  font-size: 18px;
+  padding: 20px 70px;
+}
+/*----------User Role----------*/
+.BJJ-InnerRolePage {
+  /*margin-bottom:50px;*/
+}
+.BJJ-InnerRolePage ul {
+  padding-left: 0;
+}
+.BJJ-InnerRolePage ul li {
+  /*list-style:none;*/
+  float: left;
+  line-height: 21px;
+  list-style: outside none none;
+  padding: 4px 0 4px 31px;
+  position: relative;
+  width: 100%;
+}
+.BJJ-InnerRolePage ul li:before {
+  font-family: "Glyphicons Halflings";
+  content: "\e013";
+  color: #48c31d;
+  padding-right: 20px;
+  left: 0;
+  position: absolute;
+}
+.BJJ-InnerRolePage .Innerheading {
+  background: url('Images/aboutImg.jpg') top center no-repeat;
+  height: 223px;
+  margin-bottom: 50px;
+  text-align: center;
+}
+.BJJ-InnerRolePage .Innerheading h2 {
+  font-size: 34px;
+  color: #fff;
+  text-align: center;
+  padding-top: 90px;
+  margin: 0;
+}
+.BJJ-InnerRolePage .Innerheading span {
+  color: #fff;
+}
+.BJJ-InnerRolePage .Innerheading span a {
+  color: #fff;
+}
+/*--------Contact Us---------*/
+.BJJ-contactPage .BJJ-contactBlock {
+  width: 100%;
+  background: #2757bd;
+  min-height: 202px;
+}
+.BJJ-contactPage .BJJ-contactBlock .BJJ-contactTitle {
+  color: #fff;
+  font-size: 24px;
+  padding: 20px;
+  float: right;
+  margin-top: 60px;
+}
+.BJJ-contactPage .BJJ-contactBlock .BJJ-contactTitle span {
+  border-left: 1px solid #446fcb;
+  padding: 34px 15px;
+}
+.BJJ-contactPage .BJJ-contactBlock img {
+  float: left;
+}
+.BJJ-contactPage .BJJ-contactBlock .BJJ-addressDescription {
+  padding: 56px 20px;
+  float: left;
+}
+.BJJ-contactPage .BJJ-contactBlock .BJJ-addressDescription a {
+  color: #fff;
+}
+.BJJ-contactPage .BJJ-contactBlock .BJJ-addressDescription .BJJ-blueClr {
+  color: #fff;
+  font-size: 24px;
+}
+.BJJ-contactPage .BJJ-contactBlock .BJJ-addressBlock:before {
+  content: '';
+  width: 0;
+  height: 0;
+  display: block;
+  position: absolute;
+  left: 15px;
+  top: 18px;
+  border-style: solid;
+  border-color: transparent transparent transparent #2757bd;
+  border-width: 12px 0 12px 15px;
+  z-index: 1;
+}
+.BJJ-contactPage .form-group {
+  margin-bottom: 20px;
+  float: left;
+  width: 100%;
+}
+.BJJ-contactPage h3 {
+  text-transform: uppercase;
+  font-weight: bold;
+  margin: 50px 0;
+}
+.BJJ-contactPage .BJJ-contactForm {
+  margin-bottom: 50px;
+}
+.BJJ-contactPage .BJJ-contactForm textarea {
+  resize: none;
+}
+.BJJ-contactPage .BJJ-mapLocation {
+  border-top: 2px solid #2757bd;
+}
+.BJJ-contactForm {
+  display: inline-block;
+}
+.BJJ-contactForm input {
+  border-radius: 0;
+  box-shadow: none;
+  max-width: 100%;
+}
+.BJJ-contactForm textarea {
+  border-radius: 0;
+  box-shadow: none;
+  max-width: 100%;
+  height: 88px;
+}
+/*.contact-left-image { 
+  color: #ffffff;
+  font-size: 29px;
+  font-style: italic;
+  height: 252px;
+  line-height: 264px;
+  text-align: center;
+}*/
+.gr__tooltip {
+  display: none !important;
+}
+/*------Login BG-------*/
+.BJJ-loginBg {
+  background: url('Images/loginbg.jpg') center center;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+.BJJ-loginBg #loginForm {
+  background: #fff;
+  padding: 20px;
+  /*box-shadow:0px 1px 6px blue;*/
+}
+.BJJ-loginBg .sub-menu {
+  position: relative;
+  text-align: center;
+}
+.BJJ-loginBg .sub-menu a {
+  color: #ffffff;
+  display: inline-block;
+  padding: 0 14px;
+}
+.BJJ-loginBg .sub-menu a:hover {
+  text-decoration: underline;
+}
+.BJJ-loginBg .overlay {
+  background: rgba(0, 0, 0, 0.8) none repeat scroll 0 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.BJJ-loginBg h2 {
+  color: #fff;
+  text-align: center;
+  /*padding-top:100px;*/
+  /*padding-top:70px;*/
+  padding-top: 34px;
+  font-size: 50px;
+  font-weight: bold;
+  position: relative;
+  z-index: 5555;
+}
+.BJJ-loginBg h2 a {
+  color: #fff;
+}
+.BJJ-loginBg h2 a:hover {
+  text-decoration: none;
+}
+#loginForm h4 {
+  margin: 0;
+}
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.open .dropdown-toggle.btn-primary {
+  background-color: #000000 !important;
+  border-color: #000000 !important;
+  color: #ffffff;
+}
+.checkbox-login {
+  margin-top: 11px;
+}
+.login-btn {
+  text-align: right;
+}
+.navbar-right .dropdown-menu {
+  width: 100%;
+  opacity: 0.85;
+}
+.fleft {
+  float: left;
+}
+.fright {
+  float: right;
+}
+/*------Feature Page-------*/
+.BJJ-featuresPage {
+  /*margin-bottom:50px;*/
+  margin-bottom: 0;
+}
+.BJJ-featuresPage .Innerheading {
+  background: url('Images/aboutImg.jpg') top center no-repeat;
+  height: 223px;
+  margin-bottom: 50px;
+  text-align: center;
+}
+.BJJ-featuresPage .Innerheading span {
+  color: #fff;
+}
+.BJJ-featuresPage .Innerheading span a {
+  color: #fff;
+}
+.BJJ-featuresPage h2 {
+  font-size: 34px;
+  color: #fff;
+  text-align: center;
+  padding-top: 90px;
+  margin: 0;
+}
+.BJJ-featuresPage h3 {
+  font-size: 25px;
+  font-weight: bold;
+  margin: 0 0 9px;
+  text-align: left;
+  text-transform: none;
+}
+.BJJ-featuresPage .blueBG {
+  background: #2757bd;
+  color: #fff;
+}
+.BJJ-featuresPage ul {
+  margin-left: 0;
+  padding-left: 6px;
+}
+.BJJ-featuresPage ul li {
+  float: left;
+  line-height: 21px;
+  list-style: outside none none;
+  padding: 4px 0 4px 31px;
+  position: relative;
+  width: 50%;
+}
+.BJJ-featuresPage .ForAthletes ul li {
+  float: left;
+  line-height: 21px;
+  list-style: outside none none;
+  padding: 4px 0 4px 31px;
+  position: relative;
+  width: 100%;
+}
+.BJJ-featuresPage ul li:before {
+  font-family: "Glyphicons Halflings";
+  content: "\e013";
+  color: #48c31d;
+  padding-right: 15px;
+  left: 0;
+  position: absolute;
+}
+/*------Rankings Page-------*/
+.BJJ-RankingPage {
+  margin-bottom: 50px;
+}
+.BJJ-RankingPage .Innerheading {
+  background: url('Images/aboutImg.jpg') top center no-repeat;
+  height: 223px;
+  margin-bottom: 50px;
+  text-align: center;
+}
+.BJJ-RankingPage .Innerheading span {
+  color: #fff;
+}
+.BJJ-RankingPage .Innerheading span a {
+  color: #fff;
+}
+.BJJ-RankingPage .Innerheading h2 {
+  font-size: 34px;
+  color: #fff;
+  text-align: center;
+  padding-top: 90px;
+  margin: 0;
+}
+.BJJ-RankingPage .Innerheading h3 {
+  margin: 25px;
+  text-align: left;
+  margin: 50px;
+  text-transform: uppercase;
+  font-size: 35px;
+  font-weight: bold;
+}
+.BJJ-RankingPage .BJJ-rankingSearch {
+  text-align: center;
+}
+.BJJ-RankingPage .BJJ-rankingSearch .selectpicker {
+  width: 100%;
+}
+.BJJ-RankingPage .bootstrap-select {
+  width: 50%!important;
+}
+.BJJ-RankingPage .bs-searchbox input {
+  max-width: 100%!important;
+}
+.BJJ-RankingPage .row-fluid {
+  margin-bottom: 20px;
+}
+.BJJ-RankingPage .table-ranking {
+  border: 1px solid #eee;
+}
+.BJJ-RankingPage .table-ranking th {
+  background: #2757bd;
+  color: #fff;
+  text-align: left;
+}
+.BJJ-RankingPage .table-ranking td {
+  text-align: left;
+}
+.BJJ-RankingPage .dropdown-header {
+  font-weight: bold;
+  font-size: 16px;
+  color: #000;
+}
+.BannerImg {
+  display: none;
+}
+.equal,
+.equal > div[class*='col-'] {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex: 1 1 auto;
+}
+.ui-autocomplete {
+  max-height: 200px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 20px;
+  background-color: white;
+  list-style: none;
+  /*width:40%!important;*/
+}
+.ui-autocomplete.ui-front.ui-menu.ui-widget.ui-widget-content.autoCompletecustomWidth {
+  width: 515px !important;
+}
+/*#ui-id-1.ui-autocomplete{ width:500px !important;}*/
+/*------Event Detail Page-------*/
+.BJJ-eventDetailPage .eventLogo {
+  margin: auto;
+  display: block;
+  margin-top: 50px;
+}
+.BJJ-eventDetailPage .eventHeading {
+  text-align: center;
+}
+.BJJ-eventDetailPage .eventDescription {
+  border: 1px solid #eee;
+  padding: 10px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  float: left;
+  width: 100%;
+}
+.event-detail-outer .header {
+  background: #2757bd;
+  color: #fff;
+  float: left;
+  width: 100%;
+  margin: 20px 0;
+}
+.event-detail-outer #eventHeading h3 {
+  margin-top: 5px;
+  font-size: 18px;
+}
+.event-detail-outer fieldset {
+  margin: 40px 0;
+}
+.event-detail-outer legend {
+  padding-bottom: 10px;
+}
+.event-detail-outer #authenticationFields {
+  background: #ddd;
+  /*padding:10px;*/
+  padding: 31px 31px 10px 29px;
+  width: 400px;
+  margin: 50px auto;
+}
+.event-detail-outer #authenticationFields .fieldOption {
+  padding-bottom: 10px;
+}
+.event-detail-outer #authenticationFields .fieldOption input[type="text"] {
+  max-width: 100%;
+}
+.event-detail-outer #authenticationFields .fieldOption input[type="password"] {
+  max-width: 100%;
+}
+.event-detail-outer .borderRight input {
+  border: 1px solid #cccccc;
+}
+.event-detail-outer #resourcesContent {
+  float: left;
+}
+.event-detail-outer #resourcesContent h3 {
+  font-size: 16px;
+  font-weight: bold;
+}
+.event-detail-outer #resourcesContent .borderRight {
+  border-right: 1px dashed #ccc;
+}
+.event-detail-outer #resourcesContent .col-md-4 {
+  padding-bottom: 20px;
+}
+/*------Event List Page-------*/
+.BJJ-eventList {
+  border: 1px dashed #cecece;
+  height: 300px;
+  margin-bottom: 0;
+  min-height: 180px;
+  padding: 22px;
+  position: relative;
+}
+.BJJ-eventList .finished {
+  background: grey!important;
+}
+.BJJ-eventList .item {
+  padding: 0;
+  position: relative;
+}
+.BJJ-eventList .whiteBg {
+  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+  display: inline-block;
+  height: 168px;
+  text-align: center;
+  width: 100%;
+  position: relative;
+}
+.BJJ-eventList img {
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  padding: 13px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 155px;
+}
+.BJJ-eventList .expectedDate {
+  position: absolute;
+  right: 0;
+  top: 17px;
+  background: green;
+  color: #fff;
+  font-weight: bold;
+  padding: 0px 3px;
+  font-size: 12px;
+  text-align: center;
+  width: 35%;
+  margin: auto;
+}
+.BJJ-eventList .eventLstRegStatusOpen {
+  position: absolute;
+  top: 17px;
+  left: 2px;
+  background: green;
+  color: #fff;
+  font-weight: bold;
+  padding: 0px 3px;
+  font-size: 12px;
+}
+.BJJ-eventList .eventLstRegStatusClose {
+  position: absolute;
+  top: 17px;
+  left: 2px;
+  background: #a00101;
+  color: #fff;
+  font-weight: bold;
+  padding: 0px 3px;
+  font-size: 12px;
+}
+.BJJ-eventList .BJJ-eventHeading {
+  padding: 0px 0 0px 10px;
+  color: #000000;
+  font-size: 12px;
+}
+.BJJ-eventList .BJJ-eventHeading .glyphicon {
+  color: #000000;
+  font-size: 11px;
+  padding-right: 3px;
+}
+.BJJ-eventList h4 {
+  text-transform: capitalize;
+  margin: 0;
+  font-size: 14px;
+  line-height: 16px;
+  /*text-align:left;*/
+  padding: 7px 0 5px ;
+  color: #000000;
+  font-weight: bold;
+}
+.darkbg {
+  /*background: #101010;*/
+  background-image: url('Images/bg.jpg');
+  background-repeat: repeat;
+  padding-bottom: 50px;
+  display: inline-block;
+  width: 100%;
+}
+.calendarPage-section > img {
+  /*margin: 164px 10% 0;*/
+  margin: 47px 0 0;
+  width: 100%;
+}
+.darkbg > div > h2 {
+  color: #000000;
+  font-size: 35px;
+  /*padding: 44px 0 25px;
+    padding:44px 0 15px;*/
+  padding: 44px 0 15px;
+  text-align: center;
+  text-transform: uppercase;
+  position: relative;
+  margin-bottom: 35px;
+  border-bottom: 1px solid #d9d9d9;
+}
+.BJJ-contactPage.darkbg h2 {
+  padding-top: 17px;
+}
+.darkbg > div > h2::after {
+  background: #2757bd none repeat scroll 0 0;
+  bottom: -5px;
+  content: "";
+  height: 10px;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  width: 50px;
+}
+.darkbg > div > div > h2 {
+  color: #000000;
+  font-size: 35px;
+  /*padding: 44px 0 25px;*/
+  padding: 44px 0 15px;
+  text-align: center;
+  text-transform: uppercase;
+  position: relative;
+  margin-bottom: 35px;
+  border-bottom: 1px solid #d9d9d9;
+}
+.darkbg > div > div > h2::after {
+  background: #2757bd none repeat scroll 0 0;
+  bottom: -5px;
+  content: "";
+  height: 10px;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  width: 50px;
+}
+.item .list-title {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+.BJJ-eventList:hover {
+  background: #323232;
+}
+.BJJ-eventList:hover h4,
+.BJJ-eventList:hover .BJJ-eventHeading,
+.BJJ-eventList:hover .BJJ-eventHeading .glyphicon {
+  color: #fff;
+}
+/*------Ranking Page-------*/
+.BJJ-rankingFilter {
+  background: rgba(0, 0, 0, 0.5) none repeat scroll 0 0;
+  /*background:#2757bd;*/
+  padding: 25px;
+  float: left;
+  width: 100%;
+  margin-bottom: 20px;
+}
+.BJJ-rankingFilter select {
+  width: 100%;
+  padding: 10px;
+  max-width: 100%!important;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -ms-appearance: none;
+  border: 0 none;
+  background-image: url('Images/select-arrow.png');
+  background-repeat: no-repeat;
+  background-position: 97% center;
+  cursor: pointer;
+  background-color: #fff;
+}
+.k-grid-content {
+  overflow: auto !important;
+}
+.k-grid-header {
+  padding-right: 0 !important;
+}
+.k-state-selected,
+.k-button:active,
+.k-draghandle.k-state-selected:hover {
+  background-image: none !important;
+}
+.k-state-selected,
+.k-state-selected:link,
+.k-state-selected:visited,
+.k-list > .k-state-selected,
+.k-list > .k-state-highlight,
+.k-panel > .k-state-selected,
+.k-ghost-splitbar-vertical,
+.k-ghost-splitbar-horizontal,
+.k-draghandle.k-state-selected:hover,
+.k-scheduler .k-scheduler-toolbar .k-state-selected,
+.k-scheduler .k-today.k-state-selected,
+.k-marquee-color {
+  background-color: #000000 !important;
+  border-color: #000000 !important;
+}
+.k-header,
+.k-grid-header,
+.k-toolbar,
+.k-dropdown-wrap,
+.k-picker-wrap,
+.k-numeric-wrap,
+.k-grouping-header,
+.k-pager-wrap,
+.k-textbox,
+.k-button,
+.k-progressbar,
+.k-draghandle,
+.k-autocomplete,
+.k-state-highlight,
+.k-tabstrip-items .k-item,
+.km-pane-wrapper > .km-pane > .km-view > .km-content {
+  background-color: #fff !important;
+  background-image: none !important;
+}
+.k-header {
+  font-weight: bold !important;
+  background: #eeeeee !important;
+}
+/*------Calendar Page-------*/
+.calendarPage .fc-center h2 {
+  /*padding-top:50px; color:#000; font-size:34px;*/
+  color: #000000;
+  font-size: 30px;
+  padding-top: 0;
+  text-transform: none;
+}
+.navbar-inverse .navbar-nav > .open > a,
+.navbar-inverse .navbar-nav > .open > a:hover,
+.navbar-inverse .navbar-nav > .open > a:focus {
+  background: transparent!important;
+}
+/*------Change and Check Page-------*/
+.checkChangePage #dobDiv {
+  margin-bottom: 10px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+}
+.checkChangePage #dob {
+  border: 0;
+  background: none;
+  color: green;
+}
+.checkChangePage .categoryDiv {
+  margin-bottom: 30px;
+  padding-right: 10px!important;
+}
+.checkChangePage .blueBG {
+  background: #2757bd;
+  color: #fff;
+  width: 100%;
+  padding: 10px;
+  float: left;
+}
+.checkChangePage #competitorFormRight {
+  float: left;
+}
+.checkChangePage .categoryColumn {
+  padding-bottom: 10px;
+}
+.checkChangePage .categoryColumn label {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+.checkChangePage #competitorsButtonsDiv {
+  margin: 20px 0;
+  text-align: right;
+  float: right;
+  width: 100%;
+}
+.checkChangePage #competitorsButtonsDiv button {
+  margin: 0 0 0 8px;
+  padding: 8px 18px;
+}
+.checkChangePage .categoryColumn select {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  max-width: 100%;
+}
+.checkChangePage legend {
+  padding-bottom: 10px;
+  font-size: 18px;
+  float: left;
+  padding-left: 9px;
+}
+.checkChangePage .categoryColumn {
+  float: left;
+  padding: 0 8px 10px;
+  width: 25%;
+}
+.checkChangePage .categoryDiv .category {
+  /*box-shadow:0px 0px 2px #ccc;*/
+  padding: 10px;
+  background: #efefef;
+  border-radius: 0 !important;
+}
+.checkChangePage #dobInfo {
+  font-size: 14px;
+  font-style: italic;
+  line-height: 18px;
+  color: grey;
+}
+.checkChangePage .modal-footer {
+  text-align: center!important;
+}
+.checkChangePage #displayFeeDiv {
+  text-align: right;
+  font-size: 18px;
+  margin-top: 30px;
+  border-top: 1px solid #5b8cf6;
+  padding-top: 20px;
+}
+.checkChangePage .countStatus {
+  color: green;
+  font-weight: bold;
+  padding-left: 8px;
+}
+.checkChangePage #competitorsButtonsDiv button {
+  margin-bottom: 5px;
+  float: none;
+}
+.checkChangePage .competitorHistory .modal-body {
+  padding: 10px;
+}
+.checkChangePage #dvEvents .k-grid-content a {
+  cursor: pointer;
+}
+.checkChangePage #historyTable {
+  border: 1px solid #ddd;
+}
+.checkChangePage #historyTable th {
+  background: #2757bd;
+  color: #fff;
+  padding: 5px;
+}
+.checkChangePage #historyTable tr:nth-child(even) {
+  background-color: #dddddd;
+}
+.checkChangePage #historyTable tr td {
+  border-right: 1px dashed #ccc;
+}
+.history-overlay {
+  background: rgba(0, 0, 0, 0.5) none repeat scroll 0 0;
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 100%;
+  z-index: 3333;
+}
+.modal.fade.competitorHistory.in {
+  z-index: 9999;
+}
+.dashboard-image > img {
+  width: 100%;
+}
+#dvEvents .k-grid-content td {
+  font-size: 13px;
+  padding-left: 15px;
+}
+#dvEvents .k-grid-content a {
+  color: #2757bd;
+}
+.dashboard-image {
+  text-align: center;
+}
+.dashboard-image > img {
+  width: 78%;
+}
+.viewallallevents > a {
+  background: #000000 none repeat scroll 0 0;
+  color: #ffffff;
+  display: inline-block;
+  padding: 7px 18px;
+}
+.viewallallevents {
+  text-align: center;
+}
+.viewallallevents > a:hover {
+  background: #2757bd;
+}
+.detail-image-height {
+  height: 212px;
+  margin-bottom: auto;
+  margin-top: auto;
+  position: relative;
+}
+.event-detail-header .logo {
+  bottom: 0;
+  height: auto;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  width: 70%;
+  left: 0;
+  right: 0;
+}
+.col-md-12 > div#inputcontainer {
+  float: left;
+  width: 100%;
+}
+.category > input {
+  border: 1px solid #c1c1c1;
+}
+#compform > div#submitDiv {
+  display: inline-table;
+}
+#compform > div#footer {
+  display: inline-block;
+}
+#submitDiv > div {
+  display: inline-flex;
+}
+#footer {
+  float: right;
+}
+#paypalUsagePolicy > a {
+  background: #000000 none repeat scroll 0 0;
+  color: #ffffff;
+  padding: 6px 10px;
+  font-weight: 600;
+}
+#paypalUsagePolicy > a:hover {
+  background: #2757bd;
+}
+.warning {
+  color: #de0000;
+  font-size: 12px;
+}
+.pagination > li.middle-list > span {
+  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+  border: 0 none;
+  padding: 6px;
+}
+.pagination > li:first-child > a,
+.pagination > li:first-child > span {
+  border-bottom-left-radius: 0 !important;
+  border-top-left-radius: 0 !important;
+}
+.modal-content {
+  display: inline-block;
+}
+.ForAthletes {
+  border-bottom: 1px dashed #cccccc;
+  float: left;
+  margin-bottom: 37px;
+  padding-bottom: 25px;
+  width: 100%;
+}
+.ForOrganisers {
+  float: left;
+  width: 100%;
+}
+.AthletesText {
+  margin-top: 84px;
+}
+#calendar .fc-time-grid-container {
+  float: left;
+}
+.fc-prev-button.fc-button.fc-state-default.fc-corner-left.fc-corner-right {
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+}
+.fc-button-group {
+  margin-left: 0 !important;
+}
+.fc-today-button.fc-button.fc-state-default.fc-corner-left.fc-state-disabled {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}
+.BJJ-eventList .expectedDate.event_finished {
+  background: #a00101 none repeat scroll 0 0;
+}
+span#spMessage {
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+  color: #1ab124;
+  font-size: 17px;
+  margin-top: 17px;
+}
+#centerregdiv > div {
+  float: left;
+  width: 100%;
+}
+.BJJ-greyBox > p {
+  padding: 0 23px;
+}
+.BJJ-privacyContent.RegisterTemplate {
+  margin: 0 auto;
+  width: 91%;
+}
+.RegisterTemplateOuter {
+  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+  float: left;
+  margin: 10px 0;
+  padding: 41px;
+  /*width: 100%;*/
+  width: 100%;
+  border: 1px dashed #c6c6c6;
+}
+.RegisterTemplateInner:nth-child(2n+1) {
+  float: left;
+  padding: 8px 10px;
+  width: 50%;
+}
+.RegisterTemplateInner:nth-child(2n) {
+  /*float: right;*/
+  float: left;
+  padding: 8px 10px;
+  width: 50%;
+}
+.RegisterLeft {
+  float: left;
+  /*width: 165px;*/
+  width: 100%;
+}
+.Registercenter {
+  float: left;
+  /*width: 50%;*/
+  width: 100%;
+}
+.RegisterTemplatebutton > input[type="submit"] {
+  background: #000000 none repeat scroll 0 0;
+  border: 0 none;
+  color: #ffffff;
+  padding: 8px 17px;
+  text-transform: uppercase;
+  width: auto;
+  margin-top: 35px;
+}
+.RegisterTemplatebutton > input[type="submit"]:hover {
+  background: #2e2e2e;
+}
+.Registercenter > input,
+.Registercenter > textarea {
+  width: 100%;
+}
+.Registercenter > input[type="checkbox"] {
+  width: auto;
+}
+/*.Registercenter {
+  float: left;
+  width: 56%;
+}*/
+.Registerright {
+  float: left;
+  text-align: left;
+  /*width: 52%;
+  margin-left: 167px;*/
+  width: 100%;
+  margin-left: 0;
+}
+.Registerright > span {
+  color: #a60101;
+}
+.RegisterTemplatebutton {
+  float: left;
+  text-align: center;
+  width: 100%;
+}
+.RegisterTemplateOuter > p {
+  font-size: 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+#dvToInvoice .test {
+  cursor: pointer;
+}
+#tblPointDetails th {
+  text-align: center;
+}
+.RankingPopup h4 {
+  text-align: center;
+}
+#tblPointDetails th,
+#tblPointDetails td {
+  border: 1px solid #cccccc;
+  padding: 17px;
+}
+.btn.btn-default.rankingBtn {
+  background: #2757bd none repeat scroll 0 0;
+  border: 0 none;
+  border-radius: 0;
+  color: #ffffff;
+}
+.btn.btn-default.rankingBtn:hover {
+  background: #000;
+}
+.ui-autocomplete {
+  width: 279px !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+.ui-autocomplete li:nth-child(2n) {
+  background: #eeeeee none repeat scroll 0 0;
+}
+.ui-autocomplete li {
+  padding: 10px;
+}
+#dvCategoriesCompetitorPlayed {
+  margin-top: 12px;
+}
+#dvCategoriesCompetitorPlayed > div {
+  border-bottom: 1px solid #e4e4e4;
+  display: inline-block;
+  padding: 4px 19px;
+  width: 83%;
+}
+#dvCategoriesCompetitorPlayed > div:first-of-type {
+  border-bottom: 1px solid #e4e4e4;
+}
+.event-detail-outer fieldset {
+  float: left;
+  width: 100%;
+}
+#loginForm select {
+  border: 1px solid #cccccc;
+  max-width: 100%;
+  padding: 7px;
+  width: 100%;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -ms-appearance: none;
+  background-image: url("Images/select-arrow.png");
+  background-position: 97% center;
+  background-repeat: no-repeat;
+}
+.checkbox > input[type="checkbox"] {
+  margin-left: 0;
+}
+#loginForm label {
+  margin-bottom: 0;
+}
+#loginForm input,
+#loginForm select {
+  margin-bottom: 7px;
+}
+.PollMaster > input,
+.PollMaster > a {
+  background: #2757bd none repeat scroll 0 0;
+  border: 0 none;
+  color: #ffffff;
+  float: right;
+  margin-bottom: 8px;
+  padding: 6px 15px;
+}
+.PollMaster > input:hover,
+.PollMaster > a:hover {
+  background: #000 none repeat scroll 0 0;
+}
+.PollMaster > h4 {
+  float: left;
+  font-size: 23px;
+  padding: 0 5px;
+}
+.AddPoll {
+  height: 235px !important;
+}
+.modal-body.pollPopupContent {
+  padding-left: 0;
+  padding-right: 0;
+}
+.PollRow {
+  float: left;
+  width: 100%;
+  margin-bottom: 8px;
+}
+.PollLeft {
+  float: left;
+  width: 26%;
+  line-height: 32px;
+}
+.PollRight {
+  float: left;
+  width: 73%;
+}
+.PollRight > input[type="text"] {
+  border: 1px solid #c9c9c9;
+  max-width: 100%;
+  padding: 4px;
+  width: 100%;
+}
+.PollRight > select {
+  border: 1px solid #c9c9c9;
+  max-width: 100%;
+  padding: 4px;
+  width: 100%;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -ms-appearance: none;
+  background-image: url("Images/select-arrow.png");
+  background-position: 97% center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+.AddPoll h4.modal-title {
+  border-bottom: 1px solid #d7d7d7;
+  text-align: center;
+  position: relative;
+  padding-bottom: 4px;
+}
+.AddPoll h4.modal-title:after {
+  background: #2757bd none repeat scroll 0 0;
+  bottom: -3px;
+  content: "";
+  height: 4px;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  width: 40px;
+}
+.PollButton .btn.btn-primary {
+  background: #2757bd !important;
+  font-weight: normal !important;
+  border: 0 !important;
+}
+.PollButton .btn.btn-primary:hover {
+  background: #000 !important;
+  font-weight: normal !important;
+  border: 0 !important;
+}
+.PollMaster {
+  float: left;
+  margin-bottom: 14px;
+  width: 100%;
+}
+.PollRight > input[type="checkbox"] {
+  margin-top: 10px;
+}
+#dvToInvoice .k-grid-content a {
+  cursor: pointer;
+  color: #2757bd;
+}
+.PollOptionGrid {
+  float: left;
+  margin-top: 12px;
+  width: 100%;
+}
+.PollOption h4.modal-title {
+  border-bottom: 1px solid #d7d7d7;
+  text-align: center;
+  position: relative;
+  padding-bottom: 4px;
+}
+.PollOption h4.modal-title:after {
+  background: #2757bd none repeat scroll 0 0;
+  bottom: -3px;
+  content: "";
+  height: 4px;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  width: 40px;
+}
+.PollOption {
+  height: 350px !important;
+}
+#dvQuestionOption .k-grid-content a {
+  cursor: pointer !important;
+  color: #2757bd !important;
+}
+.PollOption .PollLeft {
+  float: left;
+  width: 19%;
+  line-height: 32px;
+}
+.PollOption .PollRight {
+  float: left;
+  width: 79%;
+}
+.PollResult h4.modal-title {
+  border-bottom: 1px solid #d7d7d7;
+  text-align: center;
+  position: relative;
+  padding-bottom: 4px;
+}
+.PollResult h4.modal-title:after {
+  background: #2757bd none repeat scroll 0 0;
+  bottom: -3px;
+  content: "";
+  height: 4px;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  width: 40px;
+}
+.PollResult.ui-dialog-content.ui-widget-content {
+  height: 420px !important;
+}
+.EventCatText {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 27px;
+  padding-bottom: 22px;
+  padding-top: 8px;
+  text-align: center;
+}
+.EventResultdivider {
+  position: relative;
+  text-align: center;
+  display: inline-block;
+  width: 100%;
+  margin: 20px 0;
+}
+.EventResultdivider:before {
+  background: url("Images/EventResultMiddBG.png");
+  background-repeat: repeat-x;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  top: 8px;
+  content: "";
+  height: 6px;
+}
+.EventResultdividertxt {
+  background-image: url("Images/bg.jpg");
+  padding: 2px 10px;
+  position: relative;
+  z-index: 888;
+  color: #bababa;
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.BJJ-aboutUsPage .EventResultLeft h3 {
+  font-size: 20px;
+  font-weight: normal;
+  margin: 20px 0 8px;
+}
+.cat a {
+  color: #000000;
+  cursor: pointer;
+}
+.EventResultLeft select {
+  border: 1px solid #cccccc;
+  font-size: 15px;
+  max-width: 100%;
+  padding: 5px;
+  width: 100%;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -ms-appearance: none;
+  background-image: url("Images/select-arrow.png");
+  background-position: 98% center;
+  background-repeat: no-repeat;
+}
+.EventResultButton {
+  float: left;
+  width: 100%;
+  text-align: center;
+}
+.EventResultButton input[type="button"] {
+  background: #000000 none repeat scroll 0 0;
+  border: 0 none;
+  color: #ffffff;
+  font-size: 16px;
+  padding: 7px 28px;
+  text-align: center;
+  margin-top: 25px;
+}
+.EventResultLeft .ui-sortable {
+  list-style: outside none none;
+  margin-top: 15px;
+  padding: 0;
+  border-top: 1px solid #c5c5c5;
+}
+.EventResultLeft .ui-icon.ui-icon-arrowthick-2-n-s {
+  display: none;
+}
+.EventResultLeft .ui-state-default {
+  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+  border-left: 0 !important;
+  border-right: 0 !important;
+  border-top: 0 none;
+  padding: 6px 13px;
+}
+.EventResultLeft .removeItem {
+  float: right;
+  margin-top: 4px;
+}
+.EventResultLeft .cat {
+  text-align: center;
+}
+.BJJ-aboutUsPage .EventResultRight h3:first-of-type {
+  border-top: 1px solid #868686;
+}
+.BJJ-aboutUsPage .EventResultRight h3 {
+  background: #e3e3e3 none repeat scroll 0 0;
+  border-left: 1px solid #868686;
+  border-right: 1px solid #868686;
+  border-bottom: 1px solid #868686;
+  border-top: 0;
+  color: #202020;
+  font-size: 16px;
+  font-weight: normal;
+  padding: 13px 0;
+  text-align: left;
+  text-transform: none;
+  margin: 0;
+}
+.BJJ-aboutUsPage .EventResultRight h3.ui-accordion-header-active {
+  border-bottom: 0 !important;
+}
+.BJJ-aboutUsPage .ui-accordion .ui-accordion-content {
+  border-left: 1px solid #868686;
+  border-right: 1px solid #868686;
+  border-bottom: 1px solid #868686;
+}
+.EventResultRight .ui-corner-all,
+.ui-corner-top,
+.ui-corner-right,
+.ui-corner-tr {
+  border-top-right-radius: 0 !important;
+}
+.EventResultRight .ui-corner-all,
+.ui-corner-top,
+.ui-corner-left,
+.ui-corner-tl {
+  border-top-left-radius: 0 !important;
+}
+.EventResultRight .ui-corner-all,
+.ui-corner-bottom,
+.ui-corner-left,
+.ui-corner-bl {
+  border-bottom-left-radius: 0 !important;
+}
+.EventResultRight .ui-corner-all,
+.ui-corner-bottom,
+.ui-corner-right,
+.ui-corner-br {
+  border-bottom-right-radius: 0 !important;
+}
+.AccordionRow {
+  border-bottom: 1px solid #cccccc;
+  float: left;
+  padding: 10px 18px;
+  width: 100%;
+}
+.AccordionColumnLeft {
+  float: left;
+  width: 85%;
+}
+.AccordionColumnRight {
+  float: right;
+  text-align: center;
+  width: 15%;
+}
+.EventResultRight .ui-accordion .ui-accordion-content {
+  padding: 0.1em 0 !important;
+}
+.Header .AccordionColumnLeft {
+  font-size: 15px;
+  font-weight: bold;
+}
+.Header .AccordionColumnRight {
+  font-size: 15px;
+  font-weight: bold;
+}
+.EventResultRight > #accordion .ui-state-active .ui-icon,
+.ui-button:active .ui-icon.ui-icon-triangle-1-s {
+  background-image: url("Images/open-arrow.png") !important;
+  background-position: center center;
+}
+.EventResultRight > #accordion .ui-icon,
+.ui-widget-content .ui-icon.ui-icon-triangle-1-s {
+  background-image: url("Images/close-arrow.png") !important;
+  background-position: center center;
+}
+.EventResultSearch.EventResultCat {
+  margin-bottom: 40px;
+}
+.ui-widget.ui-widget-content {
+  z-index: 555;
+}
+.BJJ-contactForm .contact-form-outer .form-group select#intrestedIN {
+  border: 1px solid #cccccc;
+  margin-bottom: 1px;
+  min-width: 100%;
+  padding: 7px;
+  width: 100%;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -ms-appearance: none;
+  background-image: url('Images/select-arrow.png');
+  background-repeat: no-repeat;
+  background-position: 97% center;
+  cursor: pointer;
+}
+.BJJ-contactForm .contact-form-outer .form-group {
+  float: left;
+  width: 50%;
+}
+.BJJ-contactForm .contact-form-outer .form-group.contact-textarea {
+  width: 100%;
+}
+.RegisterTemplateOuter h1 {
+  color: #2b2b2b;
+  font-size: 23px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.RegisterTemplateOuter p {
+  text-align: center;
+}
+.RegisterTemplateRow {
+  float: left;
+  width: 100%;
+}
+.RegisterTemplateRow .RegisterTemplateInner:nth-child(2n) {
+  float: left;
+  width: 50%;
+}
+.RegisterTemplateRow .RegisterTemplateInner:nth-child(2n+1) {
+  float: left;
+  width: 50%;
+}
+.divTournamentDirectorDetails .RegisterTemplateInner:first-of-type {
+  width: 47%;
+}
+.divTournamentDirectorDetails .RegisterTemplateInner {
+  width: 26%;
+  float: left;
+  padding: 0 10px;
+}
+.Registercenter > span {
+  float: left;
+  padding: 0 3px 0 0;
+  width: 50%;
+}
+.divTournamentDirectorDetails .RegisterLeft {
+  float: left;
+  width: 100%;
+}
+.divTournamentDirectorDetails .Registercenter {
+  width: 100%;
+}
+.Registercenter > span {
+  float: left;
+  width: 50%;
+}
+.divTournamentDirectorDetails .Registercenter input,
+.divTournamentDirectorDetails .Registercenter textarea {
+  max-width: 100%;
+  width: 100%;
+}
+.divTournamentDirectorDetails {
+  display: inline-block;
+  margin-bottom: 16px;
+  width: 100%;
+}
+.divEventDetails {
+  display: inline-block;
+  width: 100%;
+}
+.divEventDetails .RegisterLeft {
+  width: 100%;
+}
+.divEventDetails .Registercenter {
+  width: 100%;
+  position: relative;
+}
+.Registercenter > select {
+  max-width: 100%;
+  padding: 5px;
+  width: 100%;
+}
+.divNewUserAccountSetUp {
+  float: left;
+  width: 100%;
+}
+/*.ui-datepicker-trigger {
+  background: #ebebeb none repeat scroll 0 0;
+  border: 1px solid #8e8e8e;
+  cursor: pointer;
+  padding: 5px 5px 6px;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.ui-datepicker-trigge:hover{background: #e7e7e7 none repeat scroll 0 0;}*/
+.Registercenter img {
+  background: #ebebeb none repeat scroll 0 0;
+  border: 1px solid #8e8e8e;
+  cursor: pointer;
+  padding: 6px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 28px;
+  width: auto;
+}
+.Registerright {
+  color: #474747;
+  font-size: 12px;
+  line-height: 17px;
+}
+.Registercenter img:hover {
+  background: #e7e7e7 none repeat scroll 0 0;
+}
+.oldsitelink {
+  color: #2757bd;
+  display: inline-block;
+  font-size: 15px;
+  margin-top: 0;
+  position: relative;
+  text-align: center;
+  text-decoration: underline;
+  top: 24px;
+  width: 100%;
+  z-index: 10;
+}
+.oldsitelink:hover {
+  text-decoration: none;
+  color: #2757bd;
+}
+.BJJ-greyBox > img {
+  width: 100%;
+}
+input[type="radio"],
+input[type="checkbox"] {
+  width: auto;
+}
+select#drpPageSize {
+  width: auto;
+}
+.divVenueDetails {
+  display: inline-block;
+  width: 100%;
+}
+.divVenueDetails .RegisterLeft {
+  width: 100%;
+}
+.divVenueDetails .Registercenter {
+  width: 100%;
+}
+.divVenueDetails .Registerright {
+  width: 100%;
+}
+.RegisterTemplateRow.RegisterAddress .RegisterTemplateInner {
+  width: 100%;
+}
+.divVenueDetails .Registercenter.RegisterCity {
+  margin-right: 1%;
+  width: 49%;
+}
+.divVenueDetails .Registercenter.RegisterState {
+  margin-left: 1%;
+  width: 49%;
+}
+.divVenueDetails .Registercenter.RegisterVenue {
+  margin-right: 1%;
+  width: 49%;
+  margin-top: 17px;
+}
+.divVenueDetails .Registercenter.RegisterCountry {
+  margin-left: 1%;
+  width: 49%;
+  margin-top: 17px;
+}
+.RegisterTemplateInner.Registerbig {
+  height: 111px;
+}
+.RegisterTemplateInner.Registermedium {
+  height: 80px;
+}
+.RegisterTemplateInner.Registermedium2 {
+  height: 99px;
+}
+.btneventregistration {
+  /*color: #000;
+    background: #fff;
+    padding: 5px 10px;*/
+  background: #48c31d none repeat scroll 0 0;
+  color: #ffffff;
+  font-weight: normal;
+  /*margin-right: 5px;*/
+  padding: 11px 32px;
+  display: inline-block;
+}
+.btneventregistration:hover,
+.btneventregistration:focus {
+  /*color: #fff;
+    background: #000;
+    padding: 5px 10px;*/
+  background: #48c31d none repeat scroll 0 0;
+  color: #ffffff;
+  font-weight: normal;
+  padding: 11px 32px;
+  display: inline-block;
+}
+.event-detail-outer {
+  margin-top: 30px;
+}
+.ui-widget-header .ui-icon {
+  background-image: url('Images/ui-icons_555555_256x240.png') !important;
+}
+.RegisterTemplateOuter > div {
+  border-bottom: 1px dashed #c0c0c0;
+  display: inline-block;
+  padding-bottom: 38px;
+  width: 100%;
+}
+.RegisterTemplateOuter > div:last-of-type {
+  border-bottom: none;
+  display: inline-block;
+  padding-bottom: 0;
+  width: 100%;
+}
+#dvEarlyBirdsOffersOffered .RegisterLeft {
+  float: left;
+  width: 100%;
+}
+#dvEarlyBirdsOffersOffered .Registercenter {
+  float: left;
+  width: 100%;
+}
+.BirdsOffersOfferedtxt {
+  display: table;
+  /*font-weight: bold;*/
+  margin: 0 auto;
+  padding-bottom: 20px;
+  padding-top: 60px;
+  width: 80%;
+}
+.BirdsOffersOfferedtxt strong {
+  float: left;
+  font-size: 15px;
+  padding-bottom: 5px;
+  width: 100%;
+}
+#dvEarlyBirdsOffersOffered .Registercenter > input {
+  text-indent: 26px;
+}
+#dvEarlyBirdsOffersOffered .Registercenter {
+  position: relative;
+}
+#dvEarlyBirdsOffersOffered .Registercenter::before {
+  background-color: #ffffff;
+  color: #c9c9c9;
+  content: "$";
+  font-size: 20px;
+  left: 1px;
+  padding: 2px 6px;
+  position: absolute;
+  top: 1px;
+  z-index: 555;
+}
+#dvEarlyBirdsOffersNotOffered .Registercenter > input {
+  text-indent: 26px;
+}
+#dvEarlyBirdsOffersNotOffered .Registercenter {
+  position: relative;
+}
+#dvEarlyBirdsOffersNotOffered .Registercenter::before {
+  background-color: #ffffff;
+  color: #c9c9c9;
+  content: "$";
+  font-size: 20px;
+  left: 1px;
+  padding: 2px 6px;
+  position: absolute;
+  top: 1px;
+  z-index: 555;
+}
+#dvEarlyBirdsOffersOffered .Registercenter > span:last-of-type {
+  position: relative;
+}
+#dvEarlyBirdsOffersOffered .Registercenter input[type="number"] {
+  text-indent: 24px;
+}
+.calendarPageOuter {
+  margin: 0 auto;
+  width: 950px;
+}
+.CalenderPage .container {
+  margin: 0 auto;
+  width: 72%;
+}
+.fc-view-container {
+  background: #ffffff none repeat scroll 0 0;
+}
+.DashboarOuter {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+}
+.DashBoardBox {
+  background: #2757bd;
+  font-size: 12px;
+  height: 100px;
+  margin: 14px;
+  padding: 20px;
+  text-align: center;
+  width: 17%;
+  display: inline-table;
+  line-height: 18px;
+  height: 150px;
+}
+.DashBoardBox a {
+  color: #fff;
+}
+.DashBoardBoxicon {
+  float: left;
+  width: 100%;
+  height: 75px;
+}
+.PollMaster.addNewButton {
+  float: right;
+  width: auto;
+}
+.ui-widget-overlay {
+  background: #000 !important;
+  opacity: .8 !important !important;
+}
+.ui-widget-header {
+  border: 1px solid #313131 !important;
+  background: #000 !important;
+  color: #fff !important;
+  font-weight: bold;
+}
+.ui-dialog input,
+.ui-dialog select,
+.ui-dialog textarea {
+  border: 1px solid #ccc;
+  padding: 7px;
+}
+.myModal_row {
+  float: left;
+  width: 100%;
+  margin-bottom: 18px;
+}
+input#searchcatname {
+  background: rgba(241, 241, 241, 0.5);
+  border: 1px solid #c6c6c6;
+  color: #000;
+}
+.ScoreboardOperator {
+  width: 50%;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.5);
+  display: table;
+  padding: 33px 50px;
+  border: 2px solid #ededed;
+}
+#dvEventlist {
+  float: left;
+  width: 100%;
+}
+#dvEventlist input[type="checkbox"] {
+  margin-right: 8px;
+  margin-top: 9px;
+}
+input#btnSubmit {
+  background: #2757bd none repeat scroll 0 0;
+  border: 0 none;
+  color: #fff;
+  float: left;
+  margin-top: 18px;
+  padding: 6px 15px;
+  width: auto;
+}
+.AddRankingTextarea textarea {
+  border: 1px solid #ccc;
+  resize: none;
+  padding: 5px 11px;
+}
+.AddRankingDetailsRow {
+  margin-bottom: 20px;
+}
+.AddRankingTextarea > input[type='Submit'],
+.AddRankingTextarea > a {
+  background: #2757bd none repeat scroll 0 0;
+  border: 0 none;
+  color: #fff;
+  float: left;
+  margin-right: 22px;
+  padding: 6px 15px;
+  width: auto;
+}
+.AddRankingTextarea > input[type='Submit']:hover,
+.AddRankingTextarea > a:hover {
+  background: #000 none repeat scroll 0 0;
+}
+#myModal.AddUserRole {
+  height: 200px !important;
+}
+.AddUserRoleLabel {
+  float: left;
+  margin-right: 5px;
+}
+.AddUserRolerow {
+  float: left;
+  width: 100%;
+  margin-bottom: 12px;
+}
+.ScoreboardOperator input,
+.ScoreboardOperator select,
+.ScoreboardOperator textarea {
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+}
+#catagoryList.EventDetailPopup .modal-dialog {
+  width: 568px;
+}
+#catagoryList.EventDetailPopup .modal-dialog .modal-content {
+  overflow-y: auto;
+}
+.EventDetailPopup h4.modal-title {
+  text-align: center;
+}
+
+.Compititor {
+  float: right;
+  width: auto;
+  margin-top:10px;
+}
+.EventDetailGridRow {
+  float: left;
+  width: 100%;
+  border-top: 1px solid #cccccc;
+  border-left: 1px solid #cccccc;
+  border-right: 1px solid #cccccc;
+}
+.EventDetailGridRow:last-of-type {
+  border-top: 1px solid #ccc;
+  border-left: 0;
+  border-right: 0;
+  padding-top: 20px;
+}
+.EventDetailGridLeft {
+  float: left;
+  width: 30%;
+  padding: 6px;
+  font-weight: bold;
+}
+.EventDetailGridRight {
+  float: left;
+  width: 60%;
+  padding: 6px;
+  border-left: 1px solid #cccccc;
+}
+.EventButtons {
+  float: right;
+}
+.EventButtons input {
+  float: left;
+  width: 100px;
+  margin-right: 4px;
+  background: #2757bd;
+  border: 0;
+  color: #fff;
+  padding: 7px 0;
+}
+.EventButtons input:hover {
+  background: #000;
+}
+.EventDetailPopup .modal-footer {
+  float: left;
+  width: 100%;
+}
+.AboutEventOuter input {
+  border: 1px solid #ccc;
+  padding: 5px;
+}
+.AboutEventOuter .form-group {
+  float: left;
+  width: 50%;
+}
+.AboutEventSubmitBtn {
+  float: left;
+  width: 100%;
+  text-align: center;
+  margin-top: 11px;
+}
+.AboutEventSubmitBtn > input#btnSubmit {
+  margin-top: 0;
+  float: initial;
+  padding: 10px 34px;
+  text-transform: uppercase;
+}
+.AboutEventSubmitBtn > .input#btnSubmit:hover {
+  background: #000 !important;
+}
+.AboutEventOuter .field-validation-error {
+  font-size: 12px;
+  color: #a60101;
+}
+label em {
+  color: #a60101;
+}
+.BJJ-privacyContent.RegisterTemplate h4 {
+  padding: 49px 0;
+  font-style: italic;
+}
+.BJJMiddleMessage {
+  position: relative;
+  background: #2757bd;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 20px 0;
+}
+.BJJMiddleMessage h3 {
+  color: #fff;
+  font-weight: 600;
+}
+.BJJMiddleMessage img {
+  width: 40px;
+}
+.BJJMiddleMessage a {
+  background: #fff;
+  color: #000;
+  border-radius: 0;
+  margin-left: 13px;
+  font-weight: bold;
+  font-size: 12px;
+}
+.BJJMiddleMessage a:hover {
+  background: #000;
+  color: #fff;
+  border-radius: 0;
+  margin-left: 13px;
+  font-weight: bold;
+  font-size: 12px;
+}
+.CompRegistrationBox {
+  height: 86px;
+}
+.CompRegistration .form-group {
+  display: inline-block;
+  width: 100%;
+}
+.CompRegistration span.field-validation-error {
+  color: #a60101;
+  font-size: 13px;
+}
+.CompRegistration input {
+  border: 1px solid #ccc;
+  padding: 5px;
+}
+.AcademyAccountsBox {
+  height: 86px;
+}
+.AcademyAccounts .form-group {
+  display: inline-block;
+  width: 100%;
+}
+.AcademyAccounts span.field-validation-error {
+  color: #a60101;
+  font-size: 13px;
+}
+.AcademyAccounts input {
+  border: 1px solid #ccc;
+  padding: 5px;
+}
+/*----------Responsive----------*/
+@media only screen and (min-width: 1080px) and (max-width: 1900px) {
+  .navbar-header.padding10 img {
+    width: 100%;
+  }
+  .navbar-inverse .navbar-nav > li > a {
+    font-size: 15px;
+  }
+  #catagoryList .modal-dialog {
+    width: 1000px;
+  }
+  #catagoryList .modal-dialog .modal-content {
+    height: 550px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+  .competitorHistory .modal-dialog {
+    width: 1000px;
+  }
+}
+@media only screen and (min-width: 1080px) and (max-width: 1300px) {
+  .navbar-inverse .container {
+    max-width: 100%;
+  }
+}
+@media only screen and (min-width: 850px) and (max-width: 1080px) {
+  .navbar-inverse .navbar-nav > li > a {
+    font-size: 14px;
+  }
+  #loginLink,
+  #registerLink {
+    padding: 5px 10px;
+  }
+  .navbar-header img {
+    width: 80%;
+  }
+  .navbar-inverse .container {
+    max-width: 100%;
+    padding: 0 10px;
+  }
+  .BJJ-nav {
+    padding: 0;
+  }
+  .navbar-inverse .navbar-nav > li > a {
+    font-size: 15px;
+    padding: 7px;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 870px) {
+  .navbar-inverse .navbar-nav > li > a {
+    font-size: 14px;
+  }
+  #loginLink,
+  #registerLink {
+    padding: 5px 10px;
+  }
+  .navbar-header img {
+    width: 80%;
+  }
+  .navbar-inverse .navbar-nav > li > a {
+    font-size: 13px;
+    padding: 7px;
+  }
+  .BJJ-nav {
+    padding: 0;
+  }
+  .navbar .container {
+    min-width: 100%;
+  }
+  #loginLink,
+  #registerLink {
+    padding: 5px;
+  }
+  .BannerImg {
+    display: block;
+  }
+  .BannerImg img {
+    max-width: 100%;
+  }
+  .videoBanner {
+    display: none;
+  }
+  .BJJ-searchSection h1 {
+    font-size: 35px!important;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .navbar-inverse .navbar-nav > li > a {
+    border-bottom: 2px solid #000000;
+  }
+  .navbar-fixed-top,
+  .navbar-fixed-bottom {
+    position: relative;
+  }
+  .navbar-header,
+  .BJJ-nav {
+    background: #000;
+  }
+  .navbar {
+    margin-bottom: 0;
+  }
+  .BJJ-nav li {
+    border-bottom: 1px solid #222;
+  }
+  .menuSection {
+    width: 100%;
+  }
+  .BJJ-homePage .BJJ-searchSection {
+    top: 80px;
+  }
+  .BJJ-homePage .BJJ-searchSection h1 {
+    font-size: 16px;
+    padding-bottom: 40px;
+  }
+  .BJJ-homePage .BJJ-searchSection input[type="text"] {
+    padding: 5px;
+    max-width: 65%;
+  }
+  .BJJ-homePage .BJJ-searchSection .BJJ-searchBtn {
+    padding: 7px 10px;
+    margin: -2px 0 0 -37px;
+  }
+  .carousel-indicators {
+    display: none;
+  }
+  .BJJ-homePage h2 {
+    font-size: 22px;
+    margin-bottom: 25px;
+  }
+  section {
+    margin: 25px 0;
+  }
+  .BJJ-homePage .BJJ-userRoleSection .BJJ-greyBox {
+    margin-bottom: 25px;
+  }
+  .BJJ-homePage .BJJ-additionalFeaturesSection .BJJ-greyBox img {
+    width: 100%;
+  }
+  .BJJ-homePage .BJJ-userRoleSection h3 {
+    font-size: 20px;
+  }
+  .BJJ-homePage .BJJ-greyBox h3 {
+    font-size: 20px!important;
+  }
+  .BJJ-homePage .navbar-inverse .navbar-nav > li > a {
+    font-size: 13px;
+    padding: 7px;
+  }
+  .BJJ-homePage .BJJ-Message h3 {
+    font-size: 16px;
+  }
+  .BJJ-homePage #loginLink,
+  .BJJ-homePage #registerLink {
+    padding: 5px;
+  }
+  .BannerImg {
+    display: block;
+  }
+  .BannerImg img {
+    max-width: 100%;
+  }
+  .videoBanner {
+    display: none;
+  }
+  .BJJ-searchSection h1 {
+    font-size: 35px!important;
+  }
+}
+@media only screen and (min-width: 1200px) and (max-width: 1250px) {
+  .animated.bounceInLeft {
+    margin: auto;
+    padding-left: 0;
+    width: 75%;
+  }
+}
+@media only screen and (min-width: 1150px) and (max-width: 1250px) {
+  .BJJ-homePage .BJJ-upcomingEventsSection .owl-nav .owl-prev {
+    left: -24px;
+  }
+  .BJJ-homePage .BJJ-upcomingEventsSection .owl-nav .owl-next {
+    right: -24px;
+  }
+}
+@media only screen and (min-width: 992px) and (max-width: 1250px) {
+  .navbar-header.padding10 {
+    float: left;
+    margin-top: 17px;
+    width: 20%;
+  }
+  .navbar-collapse.collapse.navbar-right.BJJ-nav {
+    float: right;
+    width: 80%;
+  }
+  .event-detail-outer .borderRight input {
+    border: 1px solid #cccccc;
+    width: 100% !important;
+  }
+  .BJJ-aboutUsPage .BJJ-aboutContent ul li.feature1 {
+    margin: 0 20px 40px;
+  }
+  .BJJ-aboutUsPage .BJJ-aboutContent ul li.feature2 {
+    margin: 0 20px 40px;
+  }
+  .BJJ-aboutUsPage .BJJ-aboutContent ul li.feature3 {
+    margin: 0 20px 40px;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .CalenderPage .container {
+    width: 90%;
+  }
+  .navbar-inverse .navbar-nav > li > a {
+    padding: 7px 5px;
+  }
+  .ScoreboardOperator {
+    width: 80%;
+  }
+  .RegisterTemplateRow .RegisterTemplateInner:nth-child(2n) {
+    width: 100%;
+  }
+  .BJJ-privacyContent.RegisterTemplate {
+    width: 100%;
+  }
+  .divVenueDetails .Registercenter.RegisterCountry {
+    margin-left: 0;
+  }
+  .divVenueDetails .Registercenter.RegisterState {
+    margin-left: 0;
+  }
+  .Registercenter > span {
+    margin-bottom: 7px;
+    width: 100%;
+  }
+  .divTournamentDirectorDetails .RegisterTemplateInner:first-of-type {
+    width: 100% !important;
+  }
+  .divEventDetails .RegisterTemplateRow .RegisterTemplateInner {
+    width: 100% !important;
+  }
+  .divEventDetails .RegisterTemplateInner {
+    width: 100% !important;
+  }
+  .RegisterTemplateInner.Registerbig {
+    height: auto;
+  }
+  .RegisterTemplateInner.Registermedium {
+    height: auto;
+  }
+  .RegisterTemplateInner.Registermedium2 {
+    height: auto;
+  }
+  .RegisterTemplateInner:nth-child(2n+1) {
+    padding: 0 10px 0;
+  }
+  .RegisterTemplateInner:nth-child(2n) {
+    padding: 0 10px;
+  }
+  .RegisterTemplateRow .RegisterTemplateInner:nth-child(2n+1) {
+    float: left;
+    width: 100%;
+  }
+  .divVenueDetails .Registercenter.RegisterCity {
+    margin-bottom: 15px;
+    margin-right: 0;
+    width: 100%;
+  }
+  .divVenueDetails .Registercenter.RegisterState {
+    margin-bottom: 15px;
+    margin-right: 0;
+    width: 100%;
+  }
+  .divVenueDetails .Registercenter.RegisterVenue {
+    margin-bottom: 15px;
+    margin-right: 0;
+    width: 100%;
+    margin-top: 0;
+  }
+  .divVenueDetails .Registercenter.RegisterCountry {
+    margin-right: 0;
+    width: 100%;
+    margin-top: 0;
+  }
+  .RegisterTemplateInner {
+    margin-bottom: 20px;
+  }
+  .BJJ-contactForm .contact-form-outer .form-group {
+    float: left;
+    width: 100%;
+  }
+  .contact-left-image iframe {
+    height: 498px;
+  }
+  .navbar-header.padding10 {
+    float: left;
+    margin-top: 17px;
+    width: 20%;
+  }
+  .navbar-collapse.collapse.navbar-right.BJJ-nav {
+    float: right;
+    width: 80%;
+  }
+  .ui-autocomplete.ui-front.ui-menu.ui-widget.ui-widget-content.autoCompletecustomWidth {
+    width: 250px !important;
+  }
+  .RegisterTemplateOuter {
+    padding: 28px 20px;
+  }
+  .RegisterTemplateInner:nth-child(2n+1) {
+    float: left;
+    width: 100%;
+  }
+  .RegisterTemplateInner:nth-child(2n) {
+    float: left;
+    width: 100%;
+  }
+  .Registercenter {
+    float: left;
+    width: 100%;
+  }
+  .Registerright {
+    float: left;
+    margin-left: 0;
+    text-align: left;
+    width: 100%;
+  }
+  .Registercenter input {
+    width: 100%;
+  }
+  .Registercenter textarea {
+    width: 100%;
+  }
+  .RegisterLeft {
+    width: 100%;
+  }
+  .BJJ-featuresPage ul li {
+    width: 100%;
+  }
+  .AthletesText {
+    margin-top: 0;
+  }
+  .borderImgOuter {
+    display: inline-block;
+    float: none;
+    margin: auto;
+    text-align: center;
+    width: 100%;
+  }
+  .borderImg {
+    margin-bottom: 21px;
+    width: 80%;
+  }
+  .modal-content {
+    overflow-y: scroll;
+  }
+  section#loginForm {
+    float: none;
+    margin: 19px auto;
+    width: 337px;
+  }
+  .dashboard-image {
+    margin-bottom: 45px;
+  }
+  .event-detail-header .logo {
+    width: 195px;
+  }
+  .col-md-9 > div#eventHeading {
+    padding-bottom: 18px;
+    text-align: center;
+  }
+  #eventHeading h2 {
+    font-size: 20px;
+  }
+  .event-detail-outer #eventHeading h3 {
+    font-size: 16px;
+    line-height: 25px;
+    margin-bottom: 8px;
+    margin-top: 0;
+  }
+  #eventHeading h1 {
+    font-size: 20px;
+    line-height: 27px;
+    margin-bottom: 20px;
+  }
+  .event-detail-outer #resourcesContent .borderRight {
+    border-bottom: 1px dashed #cccccc;
+    border-right: 0 none;
+  }
+  .event-detail-outer .borderRight input {
+    border: 1px solid #cccccc;
+    width: 100% !important;
+  }
+  .event-detail-outer #resourcesContent {
+    float: left;
+    padding: 0;
+    width: 100%;
+  }
+  .js.flexbox.flexboxlegacy.canvas.canvastext.webgl.no-touch.geolocation.postmessage.no-websqldatabase.indexeddb.hashchange.history.draganddrop.websockets.rgba.hsla.multiplebgs.backgroundsize.borderimage.borderradius.boxshadow.textshadow.opacity.cssanimations.csscolumns.cssgradients.no-cssreflections.csstransforms.csstransforms3d.csstransitions.fontface.generatedcontent.video.audio.localstorage.sessionstorage.webworkers.applicationcache.svg.inlinesvg.smil.svgclippaths.gr__localhost > div {
+    display: none;
+  }
+  .BJJ-contactPage .BJJ-contactBlock .BJJ-contactTitle {
+    float: left;
+    text-align: right;
+    width: 39%;
+  }
+  .menuSection {
+    margin-right: 8px;
+    width: auto !important;
+  }
+  .BJJ-rankingFilter select {
+    margin-bottom: 3px;
+  }
+  .BJJ-aboutUsPage .BJJ-aboutContent ul li span {
+    font-size: 17px;
+  }
+  .BJJ-aboutUsPage .BJJ-aboutContent ul li {
+    width: 220px;
+  }
+  .BJJ-aboutUsPage .BJJ-aboutContent ul li.feature1 {
+    margin: 0 3px 40px;
+    height: 220px;
+  }
+  .BJJ-aboutUsPage .BJJ-aboutContent ul li.feature2 {
+    margin: 0 3px 40px;
+    height: 220px;
+  }
+  .BJJ-aboutUsPage .BJJ-aboutContent ul li.feature3 {
+    margin: 0 3px 40px;
+    height: 220px;
+  }
+}
+/*---Only for Ipad---*/
+@media only screen and (device-width: 768px) {
+  .BJJ-nav {
+    padding: 0;
+  }
+  #loginLink,
+  #registerLink {
+    padding: 5px;
+  }
+  .navbar-inverse .navbar-nav > li > a {
+    font-size: 13px;
+    padding: 7px;
+  }
+  .BJJ-contactPage .BJJ-contactBlock .BJJ-contactTitle {
+    float: left;
+  }
+  .BJJ-homePage .BJJ-userRoleSection .BJJ-greyBox {
+    min-height: 380px;
+  }
+  .BJJ-searchSection h1 {
+    font-size: 35px;
+    padding-bottom: 40px;
+  }
+  .BJJ-aboutUs {
+    background: url('Images/aboutBG.png') center center no-repeat #2757bd;
+  }
+  .padding10 {
+    padding: 0;
+  }
+}
+@media only screen and (min-width: 320px) and (max-width: 767px) {
+  .CalenderPage .container {
+    margin: 0 auto;
+    width: 98%;
+  }
+  .CompRegistrationBox {
+    height: auto;
+  }
+  .AcademyAccountsBox {
+    height: auto;
+  }
+  .AboutEventOuter .form-group {
+    float: left;
+    width: 100%;
+  }
+  #dvToInvoice {
+    width: 1000px;
+  }
+  .ScoreboardOperator {
+    width: 100%;
+    padding: 28px 23px;
+  }
+  .BJJ-privacyContent.RegisterTemplate {
+    width: 100%;
+  }
+  .divVenueDetails .Registercenter.RegisterCountry {
+    margin-left: 0;
+  }
+  .divVenueDetails .Registercenter.RegisterState {
+    margin-left: 0;
+  }
+  .Registercenter > span {
+    margin-bottom: 7px;
+    width: 100%;
+  }
+  .divTournamentDirectorDetails .RegisterTemplateInner:first-of-type {
+    width: 100% !important;
+  }
+  .divEventDetails .RegisterTemplateRow .RegisterTemplateInner {
+    width: 100% !important;
+  }
+  .divEventDetails .RegisterTemplateInner {
+    width: 100% !important;
+  }
+  .RegisterTemplateInner.Registerbig {
+    height: auto;
+  }
+  .RegisterTemplateInner.Registermedium {
+    height: auto;
+  }
+  .RegisterTemplateInner.Registermedium2 {
+    height: auto;
+  }
+  .RegisterTemplateInner:nth-child(2n+1) {
+    padding: 0 10px 0;
+  }
+  .RegisterTemplateInner:nth-child(2n) {
+    padding: 0 10px;
+  }
+  .RegisterTemplateRow .RegisterTemplateInner:nth-child(2n+1) {
+    float: left;
+    width: 100%;
+  }
+  .divVenueDetails .Registercenter.RegisterCity {
+    margin-bottom: 15px;
+    margin-right: 0;
+    width: 100%;
+  }
+  .divVenueDetails .Registercenter.RegisterState {
+    margin-bottom: 15px;
+    margin-right: 0;
+    width: 100%;
+  }
+  .divVenueDetails .Registercenter.RegisterVenue {
+    margin-bottom: 15px;
+    margin-right: 0;
+    width: 100%;
+    margin-top: 0;
+  }
+  .divVenueDetails .Registercenter.RegisterCountry {
+    margin-right: 0;
+    width: 100%;
+    margin-top: 0;
+  }
+  .RegisterTemplateInner {
+    margin-bottom: 20px;
+  }
+  .BJJ-contactForm .contact-form-outer .form-group {
+    float: left;
+    width: 100%;
+  }
+  .ui-autocomplete.ui-front.ui-menu.ui-widget.ui-widget-content.autoCompletecustomWidth {
+    width: 250px !important;
+  }
+  .RankingPopup h4 {
+    text-align: left;
+  }
+  .modal-open .modal.RankingPopup {
+    overflow-x: auto;
+  }
+  .navbar-header img {
+    max-width: 37% !important;
+  }
+  .RegisterTemplateOuter {
+    padding: 28px 20px;
+  }
+  .RegisterTemplateInner:nth-child(2n+1) {
+    float: left;
+    width: 100%;
+  }
+  .RegisterTemplateInner:nth-child(2n) {
+    float: left;
+    width: 100%;
+  }
+  .divEventDetails .RegisterTemplateRow .RegisterTemplateInner {
+    float: left;
+    width: 50%;
+  }
+  .divEventDetails .RegisterTemplateInner {
+    width: 33.3%;
+  }
+  .Registercenter {
+    float: left;
+    width: 100%;
+  }
+  .Registerright {
+    float: left;
+    margin-left: 0;
+    text-align: left;
+    width: 100%;
+  }
+  .Registercenter > input,
+  .Registercenter > textarea {
+    max-width: 100%;
+    width: 100%;
+  }
+  .RegisterLeft {
+    width: 100%;
+  }
+}
+@media only screen and (min-width: 701px) and (max-width: 990px) {
+  .DashBoardBox {
+    width: 25%;
+  }
+}
+@media only screen and (min-width: 401px) and (max-width: 700px) {
+  .DashBoardBox {
+    width: 42%;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .DashBoardBox {
+    width: 89%;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .BirdsOffersOfferedtxt {
+    font-size: 13px;
+    line-height: 20px;
+    padding-top: 32px;
+    width: 100%;
+  }
+  .RegisterTemplateRow .RegisterTemplateInner:nth-child(2n) {
+    float: left;
+    width: 100%;
+  }
+  .BJJ-homePage .BJJ-aboutUs {
+    background-position: right bottom;
+    position: relative;
+    color: #fff;
+    float: left;
+    width: 100%;
+  }
+  .BJJ-homePage .BJJ-aboutUs .AboutPanelBg::after {
+    background: #2757bd;
+    content: "";
+    height: 100%;
+    position: absolute;
+    right: -100%;
+    top: 0;
+    width: 100%;
+  }
+  .BJJ-homePage .BJJ-searchSection .searchBlock {
+    width: 68%;
+  }
+  .BJJ-aboutUsPage .BJJ-aboutBtn .btn-primary {
+    width: 253px;
+  }
+  body {
+    font-size: 14px;
+  }
+  .BJJ-featuresPage ul li {
+    width: 100%;
+  }
+  .AthletesText {
+    margin-top: 0;
+  }
+  .borderImgOuter {
+    display: inline-block;
+    float: none;
+    margin: auto;
+    text-align: center;
+    width: 100%;
+  }
+  .borderImg {
+    margin-bottom: 21px;
+    width: 80%;
+  }
+  .modal-content {
+    overflow-y: scroll;
+  }
+  section#loginForm {
+    float: none;
+    margin: 19px auto;
+    width: 337px;
+  }
+  #loginForm hr {
+    margin: 8px;
+  }
+  #loginForm label {
+    margin-bottom: 0;
+    margin-top: 2px;
+  }
+  .BJJ-loginBg h2 {
+    margin-top: 10px;
+    margin-bottom: 0;
+    padding-top: 10px;
+  }
+  .checkChangePage .categoryColumn {
+    float: left;
+    padding: 0 8px 10px;
+    width: 50%;
+  }
+  .dashboard-image {
+    margin-bottom: 45px;
+  }
+  .event-detail-header .logo {
+    width: 195px;
+  }
+  .col-md-9 > div#eventHeading {
+    padding-bottom: 18px;
+    text-align: center;
+  }
+  #eventHeading h2 {
+    font-size: 20px;
+  }
+  .event-detail-outer #eventHeading h3 {
+    font-size: 16px;
+    line-height: 25px;
+    margin-bottom: 8px;
+    margin-top: 0;
+  }
+  #eventHeading h1 {
+    font-size: 20px;
+    line-height: 27px;
+    margin-bottom: 20px;
+  }
+  .event-detail-outer #resourcesContent .borderRight {
+    border-bottom: 1px dashed #cccccc;
+    border-right: 0 none;
+  }
+  .event-detail-outer .borderRight input {
+    border: 1px solid #cccccc;
+    width: 100% !important;
+  }
+  .event-detail-outer #resourcesContent {
+    float: left;
+    padding: 0;
+    width: 100%;
+  }
+  .js.flexbox.flexboxlegacy.canvas.canvastext.webgl.no-touch.geolocation.postmessage.no-websqldatabase.indexeddb.hashchange.history.draganddrop.websockets.rgba.hsla.multiplebgs.backgroundsize.borderimage.borderradius.boxshadow.textshadow.opacity.cssanimations.csscolumns.cssgradients.no-cssreflections.csstransforms.csstransforms3d.csstransitions.fontface.generatedcontent.video.audio.localstorage.sessionstorage.webworkers.applicationcache.svg.inlinesvg.smil.svgclippaths.gr__localhost > div {
+    display: none;
+  }
+  .contact-img-outer {
+    margin-bottom: 43px;
+  }
+  .BJJ-contactPage .BJJ-contactBlock img {
+    display: none;
+  }
+  .BJJ-contactPage .BJJ-contactBlock .BJJ-contactTitle {
+    float: left;
+    text-align: right;
+    width: 49%;
+  }
+  .animated.bounceInLeft {
+    margin: auto;
+    padding-left: 0 !important;
+    width: 286px;
+  }
+  .BJJ-aboutUsPage .BJJ-aboutContent ul li.feature1 {
+    margin-bottom: 40px;
+  }
+  .BJJ-aboutUsPage .BJJ-aboutContent ul li.feature2 {
+    margin-bottom: 40px;
+  }
+  .BJJ-aboutUsPage .BJJ-aboutContent ul li.feature3 {
+    margin-bottom: 40px;
+  }
+  .BJJ-aboutUsPage .BJJ-aboutBtn .btn-primary {
+    padding: 20px 36px;
+  }
+  .BannerImg {
+    display: block;
+  }
+  .BannerImg img {
+    max-width: 100%;
+    /*height:200px;*/
+    height: 288px;
+    width: 100%;
+  }
+  .BJJ-homePage .BJJ-upcomingEventsSection .owl-nav .owl-prev {
+    left: 0;
+  }
+  .BJJ-homePage .BJJ-upcomingEventsSection .owl-nav .owl-next {
+    right: 0;
+  }
+  .BJJ-homePage .BJJ-searchSection .BJJ-searchBtn {
+    margin: 0 0 0 -37px;
+    width: 85px;
+  }
+  .menuSection .navbar-nav {
+    margin: 7.5px 0 !important;
+  }
+  .navbar-inverse .navSection > li > a:hover,
+  .navbar-inverse .navSection > li > a.active {
+    border-bottom: 0;
+    background: #121212;
+    border-bottom: 2px solid #121212;
+  }
+  .navbar-collapse {
+    max-height: inherit !important;
+  }
+  #loginLink {
+    margin-right: 0;
+  }
+  .BJJ-rankingFilter select {
+    margin-bottom: 3px;
+  }
+}
+@media only screen and (max-width: 457px) {
+  .BJJ-homePage .BJJ-searchSection input[type="text"] {
+    margin-bottom: 4px !important;
+    width: 100% !important;
+  }
+  .BJJ-homePage .BJJ-searchSection .BJJ-searchBtn {
+    width: 100% !important;
+  }
+}
+@media only screen and (max-width: 540px) {
+  .k-pager-sizes .k-widget.k-dropdown {
+    margin-top: 10px !important;
+  }
+  .k-pager-info {
+    float: left;
+    margin-bottom: 14px;
+    margin-top: 14px;
+    text-align: center;
+    width: 100%;
+  }
+  .darkbg > div > h2::after {
+    bottom: -4px;
+    width: 42px;
+    height: 6px;
+  }
+  .darkbg > div > h2 {
+    font-size: 25px;
+  }
+  .borderImgOuter {
+    width: 100% !important;
+  }
+  .borderImg {
+    width: 100% !important;
+  }
+  .middle-list {
+    display: none !important;
+  }
+  section#loginForm {
+    width: 92% !important;
+  }
+  .checkChangePage .categoryColumn {
+    float: left;
+    padding: 0 8px 10px;
+    width: 100% !important;
+  }
+  .event-detail-outer #authenticationFields {
+    width: 288px;
+  }
+  .js.flexbox.flexboxlegacy.canvas.canvastext.webgl.no-touch.geolocation.postmessage.no-websqldatabase.indexeddb.hashchange.history.draganddrop.websockets.rgba.hsla.multiplebgs.backgroundsize.borderimage.borderradius.boxshadow.textshadow.opacity.cssanimations.csscolumns.cssgradients.no-cssreflections.csstransforms.csstransforms3d.csstransitions.fontface.generatedcontent.video.audio.localstorage.sessionstorage.webworkers.applicationcache.svg.inlinesvg.smil.svgclippaths.gr__localhost > div {
+    display: none;
+  }
+  input,
+  select,
+  textarea {
+    max-width: inherit;
+  }
+  .nav > li > a {
+    padding: 10px;
+  }
+  .carousel-caption {
+    display: none;
+  }
+  .navbar-header img {
+    max-width: 12%;
+  }
+  .navbar-header {
+    padding: 0 2%;
+  }
+  .BJJ-homePage .BJJ-searchSection {
+    top: 27px;
+  }
+  .BJJ-homePage .BJJ-searchSection .searchBlock {
+    margin: auto;
+    width: 86%;
+  }
+  .BJJ-homePage .BJJ-searchSection input[type="text"] {
+    max-width: 65%;
+    padding: 5px;
+    width: 72%;
+  }
+  .BJJ-homePage .BJJ-searchSection .BJJ-searchBtn {
+    margin: 0;
+    padding: 7px 10px;
+  }
+  .BJJ-homePage h2 {
+    font-size: 20px;
+    margin-bottom: 25px;
+  }
+  .BJJ-homePage .BJJ-userRoleSection .BJJ-greyBox {
+    margin-bottom: 20px;
+  }
+  .BJJ-homePage .BJJ-additionalFeaturesSection .BJJ-greyBox h3 {
+    font-size: 18px;
+    margin: 5px 0;
+  }
+  .BJJ-homePage .BJJ-aboutUs .BJJ-pollingBooth {
+    padding-left: 10px;
+  }
+  .BJJ-homePage .BJJ-Message h3 {
+    font-size: 14px;
+    text-align: left;
+    padding: 20px;
+    line-height: 36px;
+  }
+  .BJJ-homePage .BJJ-Message {
+    padding: 0;
+  }
+  .BJJ-homePage .BJJ-searchSection h1 {
+    padding-bottom: 10px;
+    font-size: 24px;
+  }
+  section {
+    margin: 25px 0;
+  }
+  .navbar-inverse .navbar-nav > li > a {
+    font-size: 14px;
+  }
+  .socialIcons li a {
+    padding: 6px 34px;
+  }
+  .socialIcons li {
+    border: none;
+  }
+  .BJJ-contactPage .BJJ-contactBlock {
+    float: left;
+    padding: 20px 0;
+    min-height: inherit;
+  }
+  .BJJ-contactPage .BJJ-contactBlock img {
+    display: none;
+  }
+  .BJJ-contactPage .BJJ-contactBlock .BJJ-contactTitle {
+    float: left;
+    margin: 0;
+    padding: 24px 0;
+    text-align: center;
+    width: 100%;
+  }
+  .BJJ-contactPage .BJJ-contactBlock .BJJ-contactTitle span {
+    padding: 10px 15px;
+  }
+  .BJJ-contactPage .BJJ-contactBlock .BJJ-addressDescription {
+    /*padding:5px 20px;*/
+    padding: 5px 29%;
+  }
+  .BJJ-contactPage h3 {
+    margin: 25px 0;
+    font-size: 18px;
+  }
+  .BJJ-aboutUsPage h3 {
+    margin: 25px 0;
+    font-size: 18px;
+  }
+  .BJJ-aboutUsPage .BJJ-aboutContent ul li {
+    margin-bottom: 50px;
+  }
+  .BJJ-aboutUsPage .BJJ-aboutContent ul {
+    padding-left: 10px;
+  }
+  .BJJ-aboutUsPage .BJJ-aboutContent ul li span {
+    font-size: 18px;
+  }
+  .BJJ-aboutUsPage .BJJ-aboutContent {
+    margin-bottom: 0;
+  }
+  .BJJ-aboutUsPage .BJJ-aboutBtn {
+    margin-top: 25px;
+    border-top: 1px solid #eee;
+    padding-top: 25px;
+  }
+  .BJJ-aboutUsPage .BJJ-aboutBtn .btn-primary {
+    margin-bottom: 10px;
+  }
+  .BannerImg {
+    display: block;
+  }
+  .BannerImg img {
+    max-width: inherit;
+    height: 225px;
+  }
+  .videoBanner {
+    display: none;
+  }
+}
+a:focus {
+  outline: 0 none !important;
+  outline-offset: -2px;
+}
+a:hover,
+a:focus {
+  text-decoration: none !important;
+}
+#dvCompetitors ol li {
+  list-style: decimal!important;
+}
+#dvCompetitors .ui-state-default {
+  padding: 6px 0px;
+}
+#dvCompetitors ol {
+  padding-left: 20px;
+  border-top: 0;
+}

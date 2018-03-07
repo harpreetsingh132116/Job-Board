@@ -1,0 +1,76 @@
+﻿
+@{
+    /**/
+
+    ViewBag.Title = "JobsAssignedToEmp";
+}
+
+<h2>Jobs Assigned To Employee</h2>
+
+<div>
+    <div id="dvToAcademyTeams"></div>
+</div>
+<div class="clearfix"></div>
+@Html.Partial("_ListRefrences")
+<script>
+    BindJobsList();
+    //Bind Academy Teams Grid
+    function BindJobsList() {
+        var url = "/RegionAdmin/ManageJobs/GetAllJobsAssigneToEmpByRegion";
+
+        $("#dvToAcademyTeams").kendoGrid({
+            toolbar: ["excel", "pdf"],
+            dataSource: {
+                autoBind: false,
+                transport: {
+                    read: url
+                },
+                schema: {
+                    data: "Data",
+                    total: "Total",
+                    errors: "Errors",
+                    model: {
+                        fields: {
+                            OrgRule: { type: "string" }
+                        }
+                    }
+                },
+                pageSize: 15,
+                serverPaging: false,
+            },
+            pageable: {
+                pageSize: 15,
+                info: true,
+                refresh: false
+            },
+            columnMenu: true,
+            onetouch: true,
+            sortable: true,
+            scrollable: true,
+            filterable: {
+                extra: false
+            }, excelExport: function (e) {
+                e.workbook.fileName = "result.xlsx";
+            }, pdf: {
+                allPages: true
+            },
+            columns: [
+                {
+                    field: "JobTitle",
+                    title: "JobTitle"
+                },
+                {
+                    field: "EmpName",
+                    title: "Emp Name"
+                },
+                {
+                    field: "Time",
+                    title: "Time"
+                }
+            ],
+            pageable: {
+                pageSizes: [15, 50, 75, 100]
+            }
+        });
+    }
+</script>

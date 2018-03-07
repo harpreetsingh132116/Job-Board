@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<div style="float:left;max-height: 300px; overflow: scroll;width:100%">
+    <strong>Assigned Jobs</strong><br />
+    <table id="dvTimeJobMapping" style="border:2px solid black; width:100%">
+        <thead>
+            <tr style="border:1px solid black">
+                <td style="border:1px solid black;font-weight:bold;">Job</td>
+                <td style="border:1px solid black;font-weight:bold;">Time</td>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+<script>
+    $(document).ready(function () {
+        CreateJobTimeDiv();
+    });
+
+    function CreateJobTimeDiv() {
+        $("#dvTimeJobMapping tbody").html('');
+
+        $.ajax({
+            url: "/Employee/AssignedJobs/GetAssignedJobbyUserId",
+            type: 'get',
+            success: function (result) {
+
+                if (result != false) {
+                    $.each(result, function (data, value) {
+                        var dvhtml = '<tr title="' + value.JobDescription + '" style="border:1px solid black"><td style="border:1px solid black" id="div_' + value.ID + '">' + value.JobTitle + '</td><td  style="border:1px solid black">' + value.Time + '</td></tr>';
+                        $("#dvTimeJobMapping tbody").append(dvhtml);
+                    });
+                }
+            },
+            failure: function (result) {
+                swal(result.responseText);
+            },
+            error: function (result) {
+                swal(result.responseText);
+            }
+        });
+    }
+
+</script>

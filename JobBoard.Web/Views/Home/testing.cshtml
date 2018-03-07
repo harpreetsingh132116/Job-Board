@@ -1,0 +1,142 @@
+﻿
+@{
+    ViewBag.Title = "testing";
+}
+<style>
+    #div1, #div2, #div3 {
+        float: left;
+        width: 100px;
+        height: 35px;
+        margin: 10px;
+        padding: 10px;
+        border: 1px solid black;
+    }
+</style>
+<h2>testing</h2>
+
+
+<div style="width:100%">
+    <div style="width:50%; float:left" ondrop="drop(event)" ondragover="allowDrop(event)" id="dvtiming"> </div>
+    <div style="width:50%; float:right" ondrop="drop(event)" ondragover="allowDrop(event)" id="dvJobs"> </div>
+</div>
+
+@*<div id="div1"  ondrop="drop(event)" ondragover="allowDrop(event)">
+        <span draggable="true" ondragstart="drag(event)" id="drag1">Job</span>
+    </div>
+
+    <div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <span draggable="true" ondragstart="drag(event)" id="drag2">Emp</span>
+
+    </div>
+
+    <div id="div3" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <span draggable="true" ondragstart="drag(event)" id="drag3">Time</span>
+
+    </div>*@
+
+<div id="dvTimeJobMapping"></div>
+
+<script>
+    function allowDrop(ev) {
+        ev.preventDefault();
+    }
+
+    function Jobdrag(ev) {
+        debugger
+        /// alert(ev.currentTarget.id);
+        ev.dataTransfer.setData("text", ev.currentTarget.innerText);
+    }
+
+    function Jobdrop(ev) {
+        ev.preventDefault();
+        var data = ev.dataTransfer.getData("text");
+        //ev.target.appendChild(
+        //   document.getElementById(data)
+        //);
+
+
+        
+    }
+
+    function Timedrop(ev) {
+        ev.preventDefault();
+        var data = ev.dataTransfer.getData("text");
+
+        $.ajax({
+            url: "/SuperAdmin/ManageJobs/GetAllJobs",
+            type: 'get',
+            success: function (result) {
+
+                if (result != false) {
+                   
+                    $('[id$=dvTimeJobMapping]').append(data + ' And ' + ev.target.innerText + '<br/>');
+                }
+                else {
+                    alert("Some error occured. Please try again.");
+                }
+            },
+            failure: function (result) {
+                swal(result.responseText);
+            },
+            error: function (result) {
+                swal(result.responseText);
+            }
+        });
+    }
+
+    $(document).ready(function () {
+        CreateTimeDiv();
+        CreateJobDiv();
+    });
+
+
+    function CreateTimeDiv() {
+        $('[id$=dvtiming]').html('');
+
+        var dvhtml = '';
+        var date = new Date(99, 5, 24), interval = 30, arr = [];
+
+        for (var i = 0; i < 48; i++) {
+            date.setMinutes(date.getMinutes() + interval);
+            // arr.push(date.getHours() + '.' + date.getMinutes());
+            //dvhtml += '<div style="border:1px solid black; width:100px" id="div_' + date.getHours() + '_' + date.getMinutes() +'"  ondrop="drop(event)" ondragover="allowDrop(event)">' + date.getHours() + '.' + date.getMinutes() + '</div>';
+
+            //dvhtml += '<div style="border:1px solid black; width:100px" id="div_' + date.getHours() + '_' + date.getMinutes() + '"  ondrop="Jobdrop(event)" ondragover="allowDrop(event)"><span draggable="true" ondragstart="Jobdrag(event)" id="div_' + date.getHours() + '_' + date.getMinutes() + '">' + date.getHours() + '.' + date.getMinutes() + '</span></div>';
+
+            dvhtml += '<div style="border:1px solid black; width:100px" id="div_' + date.getHours() + '_' + date.getMinutes() + '"  ondrop="Timedrop(event)" ><span id="div_' + date.getHours() + '_' + date.getMinutes() + '">' + date.getHours() + '.' + date.getMinutes() + '</span></div>';
+        }
+
+        $('[id$=dvtiming]').html(dvhtml);
+    }
+
+    function CreateJobDiv() {
+        $('[id$=dvJobs]').html('');
+
+        var dvhtml = '';
+        $.ajax({
+            url: "/SuperAdmin/ManageJobs/GetAllJobs",
+            type: 'get',
+            success: function (result) {
+
+                if (result != false) {
+                    $.each(result.Data, function (data, value) {
+                        //dvhtml += '<div style="border:1px solid black; width:100px" id="div_' + value.ID + '"  ondrop="drop(event)" ondragover="allowDrop(event)"><span draggable="true" ondragstart="drag(event)" id="div_' + value.ID + '">' + value.JobTitle + '</span></div>';
+
+                        dvhtml += '<div style="border:1px solid black; width:100px" id="div_' + value.ID + '"  ondrop="Jobdrop(event)" ondragover="allowDrop(event)"><span draggable="true" ondragstart="Jobdrag(event)" id="div_' + value.ID + '">' + value.JobTitle + '</span></div>';
+                    });
+                    $('[id$=dvJobs]').html(dvhtml);
+
+                }
+                else {
+                    alert("Some error occured. Please try again.");
+                }
+            },
+            failure: function (result) {
+                swal(result.responseText);
+            },
+            error: function (result) {
+                swal(result.responseText);
+            }
+        });
+    }
+</script>

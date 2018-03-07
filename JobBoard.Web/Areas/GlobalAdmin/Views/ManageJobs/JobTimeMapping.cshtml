@@ -1,0 +1,235 @@
+﻿
+@{
+    /**/
+
+    ViewBag.Title = "Job Time Mapping";
+}
+<style>
+    #div1, #div2, #div3 {
+        float: left;
+        width: 100px;
+        height: 35px;
+        margin: 10px;
+        padding: 10px;
+        border: 1px solid black;
+    }
+</style>
+<strong> Time</strong><br />
+<div style="position:absolute; max-height: 400px; width:90.7%;
+    overflow: scroll; border:2px solid black;" ondragover="allowDrop(event)"
+     id="dvtiming"></div>
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<strong> Jobs</strong><br />
+<input type="text" id="search-criteria" onkeyup="searchJobs()" />
+
+<div style="width:110%; float:left;max-height: 400px;overflow:scroll; border:2px solid black;"
+     ondragover="allowDrop(event)" id="dvJobs"></div>
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+
+
+@*<strong> Time Job Mapping</strong><br />
+        <div style="width:90%; float:left; position:absolute; max-height: 400px; overflow: scroll;
+
+    border:2px solid black;" id="dvTimeJobMapping">
+        </div>*@
+<div style="float:left;max-height: 300px; overflow: scroll;width:100%">
+    <strong> Time Job Mapping</strong><br />
+    <table id="tbJobTimeMapping" style="border:2px solid black; width:100%">
+        <thead>
+            <tr style="border:1px solid black">
+                <td style="border:1px solid black;font-weight:bold;">Job</td>
+                <td style="border:1px solid black;font-weight:bold;">Time</td>
+                <td style="border:1px solid black;font-weight:bold; text-align:center">
+                    Remove
+                </td>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+@*<div style="width:90%; float:left; position:absolute; max-height: 400px; overflow: scroll;
+
+    border:2px solid black;" id="dvTimeJobMapping">
+        </div>*@
+
+
+
+
+<script>
+
+    function searchJobs() {
+        $('.contact-name').hide();
+        var txt = $('#search-criteria').val();
+        $('.contact-name').each(function () {
+            if ($(this).text().toUpperCase().indexOf(txt.toUpperCase()) != -1) {
+                $(this).show();
+            }
+        });
+    }
+    //function search() {
+    //    $('.contact-name').each(function () {
+    //        if ($(this).text().toUpperCase().indexOf(txt.toUpperCase()) != -1) {
+    //            $(this).show();
+    //        }
+    //    });
+    //}
+    function allowDrop(ev) {
+        ev.preventDefault();
+    }
+
+    function Jobdrag(ev) {
+        /// alert(ev.currentTarget.id);
+        ev.dataTransfer.setData("text", ev.currentTarget.innerText);
+        ev.dataTransfer.setData("JobId", ev.currentTarget.id);
+    }
+
+    function Jobdrop(ev) {
+        ev.preventDefault();
+        var data = ev.dataTransfer.getData("text");
+    }
+
+    function Timedrop(ev) {
+        ev.preventDefault();
+        var data = ev.dataTransfer.getData("text");
+        var JobId = ev.dataTransfer.getData("JobId").split('_');
+        var model = { JobId: parseInt(JobId[1]), Time: ev.target.innerText };
+        var json = JSON.stringify(model);
+
+        $.ajax({
+            url: "/SuperAdmin/ManageJobs/JobTimeMapping",
+            type: 'POST',
+            data: json,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (result) {
+                if (result > 0) {
+                    if (result == 09090) {
+                    } else {
+
+                        //var dvhtml = '<div style="border:1px solid black; margin: 4px 12px 4px;float: left; width: 200px" id="div_' + result + '"  ondrop="Timedrop(event)" ><span id="div_' + result + '">' + data + ' Starts At ' + ev.target.innerText + '</span><span  style="float: right; "  onclick=deleteTimeJobMapping(' + result + ')  id=sp_' + result + '><img src = "/Content/Images/delete.png" /></span ></div > ';
+                        //$('[id$=dvTimeJobMapping]').append(dvhtml);
+                        var dvhtml = '<tr  style="border:1px solid black"><td style = "border:1px solid black" id= "div_' + result + '" ondrop= "Timedrop(event)" > <spanid="div_' + result + '">' + data + '</span></td > <td style="border:1px solid black">' + ev.target.innerText + '</td> <td style="border:1px solid black; text-align:center"><span onclick=deleteTimeJobMapping(' + result + ')  id=sp_' + result + '><img src="/Content/Images/delete.png" /></span></td ></tr > ';
+                        $("#tbJobTimeMapping tbody").prepend(dvhtml);
+                        swal('Job Assigned to the time');
+                    }
+                }
+                else {
+                    alert("Some error occured. Please try again.");
+                }
+            },
+            failure: function (result) {
+                swal(result.responseText);
+            },
+            error: function (result) {
+                swal(result.responseText);
+            }
+        });
+    }
+
+    $(document).ready(function () {
+        CreateTimeDiv();
+        CreateJobDiv();
+        CreateJobTimeDiv();
+    });
+
+
+    function CreateTimeDiv() {
+        $('[id$=dvtiming]').html('');
+
+        var dvhtml = '';
+        var date = new Date(99, 5, 24), interval = 30, arr = [];
+
+        for (var i = 0; i < 48; i++) {
+            date.setMinutes(date.getMinutes() + interval);
+            dvhtml += '<div style="border:1px solid black;  width: 50px; float: left;margin: 0px 12px 2px" id="div_' + date.getHours() + '_' + date.getMinutes() + '"ondrop = "Timedrop(event)" > <span id="div_' + date.getHours() + '_' + date.getMinutes() + '">' + date.getHours() + '.' + date.getMinutes() + '</span></div > ';
+        }
+        $('[id$=dvtiming]').html(dvhtml);
+    }
+
+    function CreateJobDiv() {
+        $('[id$=dvJobs]').html('');
+
+        var dvhtml = '';
+        $.ajax({
+            url: "/SuperAdmin/ManageJobs/GetAllJobs",
+            type: 'get',
+            success: function (result) {
+
+                if (result != false) {
+                    $.each(result.Data, function (data, value) {
+                        dvhtml += '<div class="contact-name" title="' + value.MultipleTrainingsAssignedCommaSeperated + '" style="border:1px solid black; margin:0px 12px 4px;width: 100px; float: left; " id="div_' + value.ID + '"  ondrop="Jobdrop(event)"ondragover = "allowDrop(event)" > <span draggable="true" ondragstart="Jobdrag(event)" id="div_' + value.ID + '">' + value.JobTitle + '</span></div>';
+                    });
+                    $('[id$=dvJobs]').html(dvhtml);
+
+                }
+                else {
+                    alert("Some error occured. Please try again.");
+                }
+            },
+            failure: function (result) {
+                swal(result.responseText);
+            },
+            error: function (result) {
+                swal(result.responseText);
+            }
+        });
+    }
+
+
+    function CreateJobTimeDiv() {
+        $("#tbJobTimeMapping tbody").html('');
+
+        $.ajax({
+            url: "/SuperAdmin/ManageJobs/GetAllJobTimeMapping",
+            type: 'get',
+            success: function (result) {
+
+                if (result != false) {
+                    $.each(result, function (data, value) {
+                        //var dvhtml = '<div style="border:1px solid black; margin:4px 12px 4px;width: 200px; float: left; " id="div_' + value.ID + '"  ondrop="Timedrop(event)" ><spanid = "div_' + value.ID + '" > ' + value.JobTitle + ' Starts At ' + value.Time + '</span > <span style="float: right;" onclick=deleteTimeJobMapping(' + value.ID + ') id=sp_' + value.ID + '><img src="/Content/Images/delete.png" /></span></div>';
+                        //$('[id$=dvTimeJobMapping]').append(dvhtml);
+
+                        var dvhtml = '<tr  style="border:1px solid black"><td style = "border:1px solid black" id= "div_' + value.ID + '" ondrop= "Timedrop(event)" > <spanid="div_' + value.ID + '">' + value.JobTitle + '</span></td > <td style="border:1px solid black">' + value.Time + '</td> <td style="border:1px solid black; text-align:center"><span onclick=deleteTimeJobMapping(' + value.ID + ')  id=sp_' + value.ID + '><img src="/Content/Images/delete.png" /></span></td ></tr > ';
+                        $("#tbJobTimeMapping tbody").append(dvhtml);
+                    });
+                }
+            },
+            failure: function (result) {
+                swal(result.responseText);
+            },
+            error: function (result) {
+                swal(result.responseText);
+            }
+        });
+    }
+
+
+    function deleteTimeJobMapping(id) {
+        $.ajax({
+            url: "/SuperAdmin/ManageJobs/DeleteJobTimeMapping?Id=" + id,
+            type: 'get',
+            success: function (result) {
+                if (result) {
+                    swal("Job Time Mapping Deleted");
+                    CreateJobTimeDiv();
+                }
+                else {
+                    alert("Some error occured. Please try again.");
+                }
+            },
+            failure: function (result) {
+                swal(result.responseText);
+            },
+            error: function (result) {
+                swal(result.responseText);
+            }
+        });
+
+    }
+</script>

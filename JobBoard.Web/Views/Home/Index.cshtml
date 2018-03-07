@@ -1,0 +1,62 @@
+﻿@using JobPortal.Web.Models
+@model LoginViewModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<div class="JobPortal-loginBg">
+    <div class="overlay"></div>
+    <div class="container-fluid">
+        <h2></h2>
+        <div class="sub-menu"></div>
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <section id="loginForm">
+                    @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+                        <h4>Login to your account</h4>
+                        <hr />
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="row" style="display:block !important">
+                            @Html.LabelFor(m => m.Region, new { @class = "col-md-12" })
+                            <div class="col-md-12">
+                                @Html.DropDownListFor(m => m.Region, Model.RegionsList)
+                                @Html.ValidationMessage("regionNotSelected", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            @Html.LabelFor(m => m.UserName, new { @class = "col-md-12" })
+                            <div class="col-md-12">
+                                @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            @Html.LabelFor(m => m.Password, new { @class = "col-md-12" })
+                            <div class="col-md-12">
+                                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="row checkbox-login">
+                            <div class="col-md-6 col-xs-6">
+                                <div class="checkbox">
+                                    @Html.CheckBoxFor(m => m.Rememberme)
+                                    @Html.LabelFor(m => m.Rememberme)
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-xs-6 login-btn">
+                                <input type="submit" value="Log in" class="btn btn-primary" />
+                            </div>
+                        </div>
+                        @Html.ValidationMessage("loginfailed", new { @class = "text-danger" })
+                        <hr />
+                    }
+                </section>
+            </div>
+        </div>
+    </div>
+</div>

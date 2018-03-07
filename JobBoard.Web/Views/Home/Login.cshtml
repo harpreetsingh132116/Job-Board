@@ -1,0 +1,76 @@
+﻿@using JobPortal.Web.Models
+@model LoginViewModel
+@{
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+    ViewBag.Title = "Log in";
+}
+<div class="JobPortal-loginBg">
+    <div class="overlay"></div>
+    <div class="container-fluid">
+        <h2><a href="/"><img src="~/Content/Images/JobPortalLogo.png" /></a></h2>
+        <div class="sub-menu"><a href="/">Home</a><a href="/Home/About">About JobPortal Comp</a><a href="/Home/Contact">Contact</a></div>
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4" style="position:absolute">
+                <section id="loginForm">
+                    @using (Html.BeginForm("Login", "Home", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                        @Html.AntiForgeryToken()
+                        <h4>Login to your account</h4>
+                        <hr />
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="row">
+                            @Html.LabelFor(m => m.Region, new { @class = "col-md-12" })
+                            <div class="col-md-12">
+                                @Html.DropDownListFor(m => m.Region, Model.RegionsList)
+                            </div>
+                        </div>
+                        <div class="row">
+                            @Html.LabelFor(m => m.UserName, new { @class = "col-md-12" })
+                            <div class="col-md-12">
+                                @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            @Html.LabelFor(m => m.Password, new { @class = "col-md-12" })
+                            <div class="col-md-12">
+                                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="row checkbox-login">
+                            <div class="col-md-6 col-xs-6">
+                                <div class="checkbox">
+                                    @Html.CheckBoxFor(m => m.Rememberme)
+                                    @Html.LabelFor(m => m.Rememberme)
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-xs-6 login-btn">
+                                <input type="submit" value="Log in" class="btn btn-primary" />
+                            </div>
+                        </div>
+                        if (ViewData["LoggedInFailed"] != null)
+                        {
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <span class="field-validation-error text-danger">  @ViewData["LoggedInFailed"]</span>
+                                </div>
+                            </div>
+                        }
+                        <hr />
+                    }
+                </section>
+            </div>
+            @*<div class="col-md-4">
+                    <section id="socialLoginForm">
+                        @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+                    </section>
+                </div>*@
+        </div>
+
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

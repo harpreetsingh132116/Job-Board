@@ -1,0 +1,108 @@
+﻿@*@model List<JobPortal.Core.Entity.*@
+@{
+
+               Layout = null;
+}
+
+<div class="container">
+    <!--<div class="col-md-12">-->
+    <div class="col-md-6 col-sm-6 AboutPanelsection">
+        <div class="AboutPanelBg">
+            <h3>About JobPortal Comp</h3>
+            <p>JobPortal Comp was conceived by Computer Programmer and JobPortal Practitioner Colin Cullinan back in 2007. It was then launched in 2008 and set an all new standard in the JobPortal Competitions scene. Since then JobPortal Comp has been setting new standards in JobPortal Tournament Management with innovative features and functions such as Online Registrations and Payments, Auto Scheduling and Brackets, On-time Scheduling to minimize competitor wait times, Athlete seeding plus a Host of other features. </p>
+            <p><a class="btn JobPortal-transparentBtn" href="/Home/About">Learn more &raquo;</a></p>
+        </div>
+    </div>
+    <input type="hidden" id="hdf_IpAddress" value="" />
+
+    <script type="application/javascript">
+    function getIP(json) {
+         document.getElementById("hdf_IpAddress").value = json.ip;
+    }
+
+    </script>
+    <script type="application/javascript"
+            src="https://api.ipify.org?format=jsonp&callback=getIP">
+    </script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $("input:radio[name=oneItem]:first").attr('checked', true);
+                $("#btn-poll_Result").click(function () {
+                   
+                    var selectedOptionID = "";
+                    var PollMasterID = $("#hdf_PollMasterID").val();
+                    var hdfIPaddress = $("#hdf_IpAddress").val();
+                    if ($('input:radio[name=oneItem]:checked')["0"] != undefined) {
+                        selectedOptionID = $('input:radio[name=oneItem]:checked')["0"].id;
+                    }
+                    else {
+                        $('input[name="oneItem"]:checked').each(function () {
+                            debugger;
+                            selectedOptionID += this.id + ",";
+                        });
+                    }
+
+                    var ModelPollOption = {};
+                    ModelPollOption.PollMaster = PollMasterID;
+                    ModelPollOption.SelectedOptionName = selectedOptionID;
+                    ModelPollOption.IPAddress = hdfIPaddress;
+                    $.ajax({
+                        type: "POST",
+                        url: "/Home/SavePollResult",
+                        data: '{entity: ' + JSON.stringify(ModelPollOption) + '}',
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        success: function (response) {
+                            swal({
+                                title: "Good Job!",
+                                text: "Inserted Successfuly.",
+                                type: "success",
+                                timer: 3000
+                            },
+                                 function () {
+                                     $("#Div_Poll").html('Your poll is successfully submitted.');
+                                 });
+                            return true;
+                        },
+                        failure: function (response) {
+                            swal(response.responseText);
+                        },
+                        error: function (response) {
+                            swal(response.responseText);
+                        }
+                    });
+
+                });//click End
+            });
+    </script>
+    @if (Model.Count > 0)
+    {
+        <input type="hidden" id="hdf_PollMasterID" value="@Model[0].PollID" />
+        <div id="Div_Poll" class="col-md-6 col-sm-6 JobPortal-pollingBooth">
+            <h3>@Model[0].PollName</h3>
+            @foreach (var item in Model)
+            {
+                var strName = item.PollOptionName;
+                var strOptionID = item.PollOptionID;
+                {
+                   
+                    <div class="form-section">
+                       @if (item.PollTypeID == 1)//for Radio button
+                       {
+                           <input name="oneItem"  type="radio" id="@strOptionID" />
+                       }
+                       else //CheckBox
+                       {
+                        <input type="checkbox" name="oneItem"   id="@strOptionID" />
+                       }
+                        <label> @strName</label>
+                    </div>
+                  
+                }
+
+            }
+            <input type="submit" id="btn-poll_Result" class="JobPortal-transparentBtn" value="Submit" />
+        </div>
+    }
+
+</div>

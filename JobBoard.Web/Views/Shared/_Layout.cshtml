@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Job Portal :: @ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+  <script src="~/Scripts/sweetalert.min.js"></script>
+    <link href="~/Content/sweetalert.min.css" rel="stylesheet" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/Content/Images/favicon-16x16.png">
+</head>
+<body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid ">
+            <div class="navbar-header padding10">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+              
+                @*@Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
+            </div>
+
+            <div class="navbar-collapse collapse navbar-right JobPortal-nav">
+                <ul class="nav navbar-nav socialIcons">
+                    <li><a href="/Home/Contact"><img src="~/Content/Images/email.png" /></a></li>
+                    @*<li><a href="https://www.instagram.com/JobPortalcomp/" target="_blank"><img src="~/Content/Images/instagram.png" /></a></li>
+                    <li><a href="https://twitter.com/intent/follow?original_referer=https%3A%2F%2FJobPortalcomp.com%2F&ref_src=twsrc%5Etfw&region=follow_link&screen_name=JobPortalcomp&tw_p=followbutton" target="_blank"><img src="~/Content/Images/twitter.png" /></a></li>
+                    <li><a href="https://www.facebook.com/JobPortalComps/" target="_blank"><img src="~/Content/Images/facebook.png" /></a></li>*@
+                    <!--<li class="oldsitelink"></li>-->
+                </ul>
+                <div class="pull-right menuSection ">
+                    <ul class="nav navbar-nav navSection">
+                        @if (Session["UserId"] == null)
+                        {
+                          //  @Html.Partial("_LoginPartial")
+                        }
+                        else
+                        {
+                            <li class="userName">
+                                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+                                    Welcome @Convert.ToString(Session["UserName"]) <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    @if (Session["LoginTypes"] != null)
+                                    {
+                                        if (Convert.ToString(Session["LoginTypes"]) == "2")
+                                        {
+                                            <li>@Html.ActionLink("My Events", "Index", "CheckAndChange")</li>
+                                        }
+                                        else if (Convert.ToString(Session["LoginTypes"]) == "1")
+                                        {
+                                            <li>@Html.ActionLink("Dashboard", "Index", "Dashboard", new { Area = "Admin" }, null)</li>
+                                        }
+                                        else
+                                        {
+                                            <li>@Html.ActionLink("Dashboard", "Index", "Dashboard", new { Area = "Admin" }, null)</li>
+                                        }
+                                        @*else
+                                        {
+                                            <li>@Html.ActionLink("Organised Events", "Index", "OrganisedEvents", new { Area = "Organiser" }, null)</li>
+                                        }*@
+                                    }
+                                    <li>@Html.ActionLink("Logout", "Logout", "Home", new { Area = "" }, null)</li>
+                                </ul>
+
+                            </li>
+
+                        }
+                    </ul>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid body-content nopadding">
+        
+        @RenderBody()
+    </div>
+
+
+
+    <script>
+        $(document).ready(function () {
+            $(window).scroll(function () { // check if scroll event happened
+                if ($(document).scrollTop() > 50) { // check if user scrolled more than 50 from top of the browser window
+                    $(".navbar-fixed-top").css("background-color", "#000"); // if yes, then change the color of class "navbar-fixed-top" to white (#f8f8f8)
+                } else {
+                    $(".navbar-fixed-top").css("background-color", "transparent"); // if not, change it back to transparent
+                }
+            });
+
+            $('.navSection li').each(function () {
+                if (window.location.href.indexOf($(this).find('a:first').attr('href')) > -1) {
+                    $(this).addClass('active').siblings().removeClass('active');
+                }
+            });
+
+            $('.dropdown-toggle').dropdown()
+        });
+
+    </script>
+  <!--<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-105330763-1', 'auto');
+  ga('send', 'pageview');
+
+    </script>-->
+</body>
+</html>

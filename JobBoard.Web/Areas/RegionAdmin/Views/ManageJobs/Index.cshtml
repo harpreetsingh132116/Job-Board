@@ -1,0 +1,119 @@
+﻿
+@{
+
+    //Layout = "~/Areas/RegionAdmin/Views/Shared/_Layout.cshtml";
+    Layout = "~/Areas/RegionAdmin/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Index";
+}
+
+
+<div class="JobPortal-aboutUsPage darkbg">
+    <div class="container">
+        <h2>Manage Jobs</h2>
+        <div class="JobPortal-aboutUsPage">
+            <input type="button" name="btnAddNew" id="btnAddNew" value="Add New Job" />
+            @using (Html.BeginForm("UploadExcel", "ManageJobs", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <div class="control-label col-md-2">Excel:</div>
+                        <div class="col-md-10">
+                            <input type="file" id="FileUpload" name="FileUpload" class="" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Upload" id="btnSubmit" class="btn btn-primary" />
+                        </div>
+                    </div>
+                </div>
+            }
+            <div class="clearfix"></div>
+            <div>
+                <div id="dvToAcademyTeams"></div>
+            </div>
+            <div class="clearfix"></div>
+            <div id="myModal" title="Insert/Update Job" class="AddPoll">
+                <div class="modal-content1">
+                    <div class="modal-header1">
+                        <h4 class="modal-title" id="myModalLabel">Insert/Update Job</h4>
+                    </div>
+                    <div class="modal-body pollPopupContent">
+                        <div class="PollRow">
+                            <input type="hidden" id="hdnJobId" />
+                        </div>
+                        <div class="PollRow">
+                            <div class="PollLeft">JobTitle:</div>
+                            <div class="PollRight"><input id="txtJobTitle" type="text" /><span id="sptxtJobTitle" style="color:red;display:none">Enter Job Title</span> </div>
+                        </div>
+
+                        <div class="PollRow">
+                            <div class="PollLeft">JobDescription:</div>
+                            <div class="PollRight"><input id="txtJobDescription" type="text" /><span id="sptxtJobDescription" style="color:red;display:none">Enter Description</span> </div>
+                        </div>
+
+
+                        <div class="PollRow">
+                            <div class="PollLeft">Region:</div>
+                            <div class="PollRight">
+                                @*<input id="txtRegionId" type="text" />*@
+                                <select id="drpRegion">
+                                    <option value="0">Select Region</option>
+                                </select>
+                                <span id="spdrpRegion" style="color:red;display:none">Select Region</span>
+                            </div>
+                        </div>
+
+                        <div class="PollRow">
+                            <div class="PollLeft">Trainings:</div>
+                            <div class="PollRight" id="dvtraining">
+                                <div id="checkboxContainer" style="max-height:70px; overflow:scroll;"></div>
+                                <span id="spchk_training" style="color:red;display:none">Select Training</span>
+                            </div>
+                        </div>
+
+
+                        <div class="PollRow">
+                            <div class="PollLeft">Status:</div>
+                            <div class="PollRight">
+
+                                <select id="drpStatus">
+                                    <option value="0">Select Status</option>
+                                    <option value="1">Open</option>
+                                    <option value="2">In Progress</option>
+                                    <option value="3">Completed</option>
+                                    <option value="4">Close</option>
+                                </select>
+                                <span id="spdrpStatus" style="color:red;display:none">Select Status</span>
+                                @*<input id="txtStatus" type="text" />*@
+
+
+
+
+                            </div>
+                        </div>
+
+
+                        <div class="PollRow">
+                            <div class="PollLeft">IsActive:</div>
+                            <div class="PollRight"><input id="chkIsActive" type="checkbox" /> </div>
+                        </div>
+
+
+                        <div class="PollRow">
+                            <div class="PollButton">
+                                <button type="button" onclick="UpdateAcademyTeamById();" id="btn_AddNewAcademy" class="btn btn-primary">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@Html.Partial("_ListRefrences")
+
+<script src="~/Areas/RegionAdmin/Scripts/ManageJobs.js"></script>
+

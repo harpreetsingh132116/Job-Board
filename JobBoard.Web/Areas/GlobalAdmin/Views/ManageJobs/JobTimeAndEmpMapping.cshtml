@@ -1,0 +1,287 @@
+﻿
+@{
+    ViewBag.Title = "JobTimeAndEmpMapping";
+}
+
+<h2>Job Time And Emp Mapping</h2>
+
+<div style="position:absolute; max-height: 150px; width:90.7%;
+    overflow: scroll; border:2px solid black; " ondragover="allowDrop(event)" id="dvJobsTime"></div>
+
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<div style="height:60px"></div>
+<strong style="margin:33px 0px 0px 0px;">Employees</strong><br />
+<input type="text" id="search-criteria" onkeyup="searchEmps()" />
+
+<div style="width:110%; float:left;max-height: 150px;margin:33px 0px 0px 0px; overflow:scroll; border:2px solid black;" ondragover="allowDrop(event)" id="dvEmps"></div>
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+
+
+<strong>Time Job and Emp Mapping</strong><br />
+
+<div style="float:left;max-height: 300px; overflow: scroll;width:100%">
+    <strong> Time Job Mapping</strong><br />
+    <table id="tbTimeJobEmpMapping" style="border:2px solid black; width:100%">
+        <thead>
+            <tr style="border:1px solid black">
+                <td style="border:1px solid black;font-weight:bold;">Job</td>
+                <td style="border:1px solid black;font-weight:bold;">Time</td>
+                <td style="border:1px solid black;font-weight:bold;">Employee</td>
+                <td style="border:1px solid black;font-weight:bold; text-align:center">Remove</td>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+<script>
+    function searchEmps() {
+        $('.contact-name').hide();
+        var txt = $('#search-criteria').val();
+        $('.contact-name').each(function () {
+            if ($(this).text().toUpperCase().indexOf(txt.toUpperCase()) != -1) {
+                $(this).show();
+            }
+        });
+    }
+
+    function allowDrop(ev) {
+        ev.preventDefault();
+    }
+
+    function Empdrag(ev) {
+        ev.dataTransfer.setData("text", ev.currentTarget.innerText);
+        ev.dataTransfer.setData("UserId", ev.currentTarget.id);
+    }
+
+    function Empdrop(ev) {
+        ev.preventDefault();
+        var data = ev.dataTransfer.getData("text");
+    }
+
+    function JobTimedrop(ev) {
+        ev.preventDefault();
+        var data = ev.dataTransfer.getData("text");
+        var UserId = ev.dataTransfer.getData("UserId").split('_')[1];
+        var jobTimeMappingId = ev.currentTarget.id.split('_')[1];
+
+        var model = { EmpId: parseInt(UserId), ID: jobTimeMappingId };
+
+        var json = JSON.stringify(model);
+        let resulsss = false;
+        $.ajax({
+            url: "/GlobalAdmin/ManageJobs/CheckIfMatchedAnyTraining?Jobid=" + jobTimeMappingId + "&Userid=" + UserId,
+            type: 'get',
+            async: false,
+            success: function (result) {
+
+                if (result == true) {
+                    resulsss = true;
+                }
+                else {
+                    resulsss = false;
+                }
+            },
+            failure: function (result) {
+                swal(result.responseText);
+            },
+            error: function (result) {
+                swal(result.responseText);
+            }
+        });
+
+        if (resulsss == true) {
+            $.ajax({
+                url: "/GlobalAdmin/ManageJobs/JobTimeAndEmpMapping",
+                type: 'POST',
+                data: json,
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (result) {
+                    if (result > 0) {
+                        if (result == 09090) {
+                        } else {
+                            var dvhtml = '<tr  style="border:1px solid black"><td style="border:1px solid black" id="div_' + result + '">' + ev.target.innerText.split('Starts at')[0] + '</span></td><td  style="border:1px solid black">' + ev.target.innerText.split('Starts at')[1] + '</td><td  style="border:1px solid black">' + data + '</td><td  style="border:1px solid black"><span  style="float: right;" onclick=deleteTimeJobMapping(' + result + ') id=sp_' + result + '><img src="/Content/Images/delete.png" /></span></td></tr>';
+                            $("#tbTimeJobEmpMapping tbody").prepend(dvhtml);
+                            swal('Job Assigned to the time');
+                        }
+                    }
+                    else {
+                        alert("Some error occured. Please try again.");
+                    }
+                },
+                failure: function (result) {
+                    swal(result.responseText);
+                },
+                error: function (result) {
+                    swal(result.responseText);
+                }
+            });
+        } else {
+            if (confirm("User does not have the specified Trainings, still you want to continue")) {
+                $.ajax({
+                    url: "/GlobalAdmin/ManageJobs/JobTimeAndEmpMapping",
+                    type: 'POST',
+                    data: json,
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (result) {
+                        if (result > 0) {
+                            if (result == 09090) {
+                            } else {
+                                var dvhtml = '<tr  style="border:1px solid black"><td style="border:1px solid black" id="div_' + result + '">' + ev.target.innerText.split('Starts at')[0] + '</span></td><td  style="border:1px solid black">' + ev.target.innerText.split('Starts at')[1] + '</td><td  style="border:1px solid black">' + data + '</td><td  style="border:1px solid black"><span  style="float: right;" onclick=deleteTimeJobMapping(' + result + ') id=sp_' + result + '><img src="/Content/Images/delete.png" /></span></td></tr>';
+                                $("#tbTimeJobEmpMapping tbody").prepend(dvhtml);
+                                swal('Job Assigned to the time');
+                            }
+                        }
+                        else {
+                            alert("Some error occured. Please try again.");
+                        }
+                    },
+                    failure: function (result) {
+                        swal(result.responseText);
+                    },
+                    error: function (result) {
+                        swal(result.responseText);
+                    }
+                });
+            }
+        }
+
+
+
+    }
+
+    function IfJobAndEmpHasSameTraings(jobtimeMappingId, empId) {
+
+    }
+
+    $(document).ready(function () {
+        CreateJobTimeDiv();
+        CreateEmpDiv();
+        CreateJobTimeAndEmpMappingDiv();
+    });
+
+    function CreateJobTimeDiv() {
+        $('[id$=dvJobsTime]').html('');
+
+        var dvhtml = '';
+        $.ajax({
+            url: "/GlobalAdmin/ManageJobs/GetAllJobTimeMapping",
+            type: 'get',
+            success: function (result) {
+
+                if (result != false) {
+                    $.each(result, function (data, value) {
+                        dvhtml += '<div style="border:1px solid black; margin: 4px 12px 4px; float: left; width:200px" id="div_' + value.ID + '"  ondrop="JobTimedrop(event)" ><span id="div_' + value.ID + '">' + value.JobTitle + ' Starts at ' + value.Time + '</span></div>';
+                    });
+                    $('[id$=dvJobsTime]').html(dvhtml);
+
+                }
+               
+            },
+            failure: function (result) {
+                swal(result.responseText);
+            },
+            error: function (result) {
+                swal(result.responseText);
+            }
+        });
+    }
+
+
+    function CreateEmpDiv() {
+        $('[id$=dvEmps]').html('');
+
+        var dvhtml = '';
+        $.ajax({
+            url: "/GlobalAdmin/ManageUsers/GetAllUsersByRegionID",
+            type: 'get',
+            success: function (result) {
+
+                if (result != false) {
+                    $.each(result.Data, function (data, value) {
+
+                        if (value.userPosition == 'General Foreman') {
+                            dvhtml += '<div class="contact-name" title="' + value.MultipleTrainingAssignedCommaSeperated +'"  style="border:1px solid black;background-color:green; color:white; margin: 4px 12px 4px; float: left; width:200px" id="div_' + value.UserId + '"  ondrop="Empdrop(event)" ondragover="allowDrop(event)"><span draggable="true" ondragstart="Empdrag(event)" id="div_' + value.UserId + '">' + value.FirstName + '' + value.lastName + '</span></div>';
+                        } else if (value.userPosition == 'Foreman') {
+                            dvhtml += '<div class="contact-name" title="' + value.MultipleTrainingAssignedCommaSeperated +'"  style="border:1px solid black;background-color:blue; color:white; margin: 4px 12px 4px; float: left; width:200px" id="div_' + value.UserId + '"  ondrop="Empdrop(event)" ondragover="allowDrop(event)"><span draggable="true" ondragstart="Empdrag(event)" id="div_' + value.UserId + '">' + value.FirstName + '' + value.lastName + '</span></div>';
+                        } else if (value.userPosition == 'Journeyman') {
+                            dvhtml += '<div class="contact-name" title="' + value.MultipleTrainingAssignedCommaSeperated +'"  style="border:1px solid black;background-color:red; color:white; margin: 4px 12px 4px; float: left; width:200px" id="div_' + value.UserId + '"  ondrop="Empdrop(event)" ondragover="allowDrop(event)"><span draggable="true" ondragstart="Empdrag(event)" id="div_' + value.UserId + '">' + value.FirstName + '' + value.lastName + '</span></div>';
+                        } else if (value.userPosition == 'Apprentice') {
+                            dvhtml += '<div class="contact-name" title="' + value.MultipleTrainingAssignedCommaSeperated +'"  style="border:1px solid black;background-color:yellow; color:black; margin: 4px 12px 4px; float: left; width:200px" id="div_' + value.UserId + '"  ondrop="Empdrop(event)" ondragover="allowDrop(event)"><span draggable="true" ondragstart="Empdrag(event)" id="div_' + value.UserId + '">' + value.FirstName + '' + value.lastName + '</span></div>';
+                        } else if (value.userPosition == 'New Hire 0-3 Months') {
+                            dvhtml += '<div class="contact-name" title="' + value.MultipleTrainingAssignedCommaSeperated +'"  style="border:1px solid black;background-color:white; margin: 4px 12px 4px; float: left; width:200px" id="div_' + value.UserId + '"  ondrop="Empdrop(event)" ondragover="allowDrop(event)"><span draggable="true" ondragstart="Empdrag(event)" id="div_' + value.UserId + '">' + value.FirstName + '' + value.lastName + '</span></div>';
+                        }
+                    });
+                    $('[id$=dvEmps]').html(dvhtml);
+
+                }
+               
+            },
+            failure: function (result) {
+                swal(result.responseText);
+            },
+            error: function (result) {
+                swal(result.responseText);
+            }
+        });
+    }
+
+
+    function CreateJobTimeAndEmpMappingDiv() {
+
+        $("#tbTimeJobEmpMapping tbody").html('');
+
+        $.ajax({
+            url: "/GlobalAdmin/ManageJobs/GetAllJobTimeEmpMapping",
+            type: 'get',
+            success: function (result) {
+
+                if (result != false) {
+                    $.each(result, function (data, value) {
+                        var dvhtml = '<tr  style="border:1px solid black"><td style="border:1px solid black" id="div_' + value.ID + '">' + value.JobTitle + '</span></td><td  style="border:1px solid black">' + value.Time + '</td><td  style="border:1px solid black">' + value.EmpName + '</td><td  style="border:1px solid black"><span  style="float: right;" onclick=deleteTimeJobMapping(' + value.ID + ') id=sp_' + value.ID + '><img src="/Content/Images/delete.png" /></span></td></tr>';
+                        $("#tbTimeJobEmpMapping tbody").append(dvhtml);
+                    });
+
+                }
+            },
+            failure: function (result) {
+                swal(result.responseText);
+            },
+            error: function (result) {
+                swal(result.responseText);
+            }
+        });
+
+    }
+
+    function deleteTimeJobMapping(id) {
+        $.ajax({
+            url: "/GlobalAdmin/ManageJobs/DeleteJobTimeAndEmpMapping?Id=" + id,
+            type: 'get',
+            success: function (result) {
+                if (result) {
+                    swal("Job,Time and Emp Mapping Deleted");
+                    CreateJobTimeAndEmpMappingDiv();
+                }
+                else {
+                    alert("Some error occured. Please try again.");
+                }
+            },
+            failure: function (result) {
+                swal(result.responseText);
+            },
+            error: function (result) {
+                swal(result.responseText);
+            }
+        });
+
+    }
+</script>
