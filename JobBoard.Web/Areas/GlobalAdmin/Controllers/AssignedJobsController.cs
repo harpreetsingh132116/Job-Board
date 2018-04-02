@@ -7,6 +7,7 @@ using System.Web.Mvc;
 namespace JobPortal.Areas.GlobalAdmin.Controllers
 {
     [Web.UserLogin]
+    [Web.RoleAuthorization]
     public class AssignedJobsController : Controller
     {
         // GET: GlobalAdmin/AssignedJobs

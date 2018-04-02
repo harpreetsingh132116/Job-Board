@@ -7,6 +7,8 @@ using System.Web.Mvc;
 
 namespace JobPortal.Areas.RegionAdmin.Controllers
 {
+    [Web.UserLogin]
+    [Web.RoleAuthorization]
     public class TrainingsController : Controller
     {
         // GET: RegionAdmin/Trainings

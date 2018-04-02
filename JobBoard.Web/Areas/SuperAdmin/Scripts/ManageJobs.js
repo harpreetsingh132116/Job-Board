@@ -47,6 +47,19 @@ function BindRegions() {
     });
 }
 
+$('[id$=btnSubmit]').on('click', function () {
+    var allowedFiles = [".csv"];
+    var fileUpload = $("#FileUpload");
+    var lblError = $("#lblError");
+    var regex = new RegExp("([a-zA-Z0-9\s_\\.\-:])+(" + allowedFiles.join('|') + ")$");
+    if (!regex.test(fileUpload.val().toLowerCase())) {
+        lblError.html("Please upload files having extensions: <b>" + allowedFiles.join(', ') + "</b> only.");
+        return false;
+    }
+    lblError.html('');
+    return true;
+})
+
 
 function BindTrainings() {
 
@@ -185,12 +198,14 @@ function EditAcademyTeamById(Id) {
                 $('#drpRegion').val(result.RegionId);
                 $('#drpStatus').val(result.Status);
                 $("#chkIsActive").attr("checked", result.IsActive);
+                $("#txtJobNumber").val(result.JobNumber);
 
-
-                $('#chk_training input:checkbox').each(function () {
+                $('#checkboxContainer input:checkbox').each(function () {
                     if (result.MultipleTrainingsAssignedCommaSeperated != null && result.MultipleTrainingsAssignedCommaSeperated != '') {
                         if (result.MultipleTrainingsAssignedCommaSeperated.split(',').indexOf(this.id) > -1) {
                             $(this).attr('checked', 'checked');
+                            console.log('true');
+                            $(this).prop('checked', true);
                         }
                     }
                 });
@@ -227,6 +242,7 @@ function UpdateAcademyTeamById() {
             , Status: $('#drpStatus').val()
             , IsActive: $("#chkIsActive").attr("checked") ? 1 : 0
             , multipleTrainings: trainings
+            , JobNumber: $("#txtJobNumber").val()
         };
         var json = JSON.stringify(model);
 
@@ -239,7 +255,7 @@ function UpdateAcademyTeamById() {
             success: function (result) {
 
                 if (result == 99900) {
-                    swal('Job Title Already exists, please choose another');
+                    swal('Job Title or Job Number Already exists, please choose another');
                     return;
                 } else
                     if (result > 0) {
@@ -275,6 +291,10 @@ function clearControls() {
     $('[id$=spdrpRegion]').css('display', 'none');
     $('[id$=spchk_training]').css('display', 'none');
     $('[id$=spdrpStatus]').css('display', 'none');
+
+    $('[id$=txtJobNumber]').val('');
+    $('[id$=sptxtJobNumber]').css('display', 'none');
+
 }
 
 function validate() {
@@ -285,6 +305,13 @@ function validate() {
         result = false;
     } else {
         $('[id$=sptxtJobTitle]').css('display', 'none');
+    }
+
+    if ($('[id$=txtJobNumber]').val() == '') {
+        $('[id$=sptxtJobNumber]').css('display', 'block');
+        result = false;
+    } else {
+        $('[id$=sptxtJobNumber]').css('display', 'none');
     }
 
     if ($('[id$=txtJobDescription]').val() == '') {

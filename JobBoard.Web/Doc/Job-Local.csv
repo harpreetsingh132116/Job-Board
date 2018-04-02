@@ -1,0 +1,9 @@
+Region Name,TrainingName,FirstName,LastName,Emailaddress,phoneNumber,UserName,userpassword,userPosition
+Region1,C#,balvinder,10,balvinder@gmail.com,12345,balvinder,123456,Apprentice
+Region1,SQL Server,harpreet,11,harpreet@gmail.com,12345,harpreet,123456,Apprentice
+Region1,MY SQL ,manpreet,12,manpreet@gmail.com,12345,manpreet,123456,Apprentice
+Region1,"MY SQL , C#",ramanpreet,13,ramanpreet@gmail.com,12345,ramanpreet,123456,Apprentice
+Region1,"MY SQL , C#",gurdev,14,gurdev@gmail.com,12345,gurdev,123456,Apprentice
+Region1,Azure,ranjeet,15,ranjeet@gmail.com,12345,ranjeet,123456,Apprentice
+Region1,MS-SQL,harvinder,16,harvinder@gmail.com,12345,harvinder,123456,Apprentice
+Region1,C++,satvinder,17,satvinder@gmail.com,12345,satvinder,123456,Apprentice

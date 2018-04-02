@@ -7,6 +7,7 @@ using System.Web.Mvc;
 namespace JobPortal.Areas.GlobalAdmin.Controllers
 {
     [Web.UserLogin]
+    [Web.RoleAuthorization]
     public class DashBoardController : Controller
     {
         // GET: GlobalAdmin/DashBoard

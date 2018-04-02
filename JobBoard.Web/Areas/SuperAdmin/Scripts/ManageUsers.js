@@ -27,7 +27,18 @@ $(document).ready(function () {
     BindTrainings();
     BindRolls();
 });
-
+$('[id$=btnSubmit]').on('click', function () {
+    var allowedFiles = [".csv"];
+    var fileUpload = $("#FileUpload");
+    var lblError = $("#lblError");
+    var regex = new RegExp("([a-zA-Z0-9\s_\\.\-:])+(" + allowedFiles.join('|') + ")$");
+    if (!regex.test(fileUpload.val().toLowerCase())) {
+        lblError.html("Please upload files having extensions: <b>" + allowedFiles.join(', ') + "</b> only.");
+        return false;
+    }
+    lblError.html('');
+    return true;
+})
 
 function DeleteUser(id) {
     $.ajax({

@@ -11,7 +11,7 @@ namespace JobPortal.Web
                 return;
 
             HttpContext ctx = HttpContext.Current;
-            if (HttpContext.Current.Session["UserId"] == null)
+            if (HttpContext.Current.Session["UserId"] == null || HttpContext.Current.Session["RegionId"] == null)
             {
                 filterContext.Result = new RedirectResult("/");
                 return;

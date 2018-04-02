@@ -14,20 +14,20 @@
             <input type="button" name="btnAddNew" id="btnAddNew" value="Add New User" />
             @using (Html.BeginForm("UploadExcel", "ManageUsers", FormMethod.Post, new { enctype = "multipart/form-data" }))
             {
-                <div class="form-horizontal">
-                    <div class="form-group">
-                        <div class="control-label col-md-2">Excel:</div>
-                        <div class="col-md-10">
-                            <input type="file" id="FileUpload" name="FileUpload" class="" />
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10">
-                            <input type="submit" value="Upload" id="btnSubmit" class="btn btn-primary" />
-                        </div>
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <div class="control-label col-md-2">Excel:</div>
+                    <div class="col-md-10">
+                        <input type="file" id="FileUpload" name="FileUpload" class="" />
                     </div>
                 </div>
+                <span id="lblError" style="color: red;"></span>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Upload" id="btnSubmit" class="btn btn-primary" />
+                    </div>
+                </div>
+            </div>
             }
             <div class="clearfix"></div>
             <div>

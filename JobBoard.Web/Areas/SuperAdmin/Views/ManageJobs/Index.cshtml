@@ -20,7 +20,7 @@
                         <input type="file" id="FileUpload" name="FileUpload" class="" />
                     </div>
                 </div>
-
+                <span id="lblError" style="color: red;"></span>
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
                         <input type="submit" value="Upload" id="btnSubmit" class="btn btn-primary" />
@@ -45,6 +45,11 @@
                         <div class="PollRow">
                             <div class="PollLeft">JobTitle:</div>
                             <div class="PollRight"><input id="txtJobTitle" type="text" /><span id="sptxtJobTitle" style="color:red;display:none">Enter Job Title</span> </div>
+                        </div>
+
+                        <div class="PollRow">
+                            <div class="PollLeft">Job Number:</div>
+                            <div class="PollRight"><input id="txtJobNumber" type="text" /><span id="sptxtJobNumber" style="color:red;display:none">Enter Job Number</span> </div>
                         </div>
 
                         <div class="PollRow">
@@ -87,7 +92,7 @@
                         </div>
                         <div class="PollRow">
                             <div class="PollLeft">IsActive:</div>
-                            <div class="PollRight"><input id="chkIsActive" type="checkbox" /> </div>
+                            <div class="PollRight"><input id="chkIsActive" checked="checked"  type="checkbox" /> </div>
                         </div>
                         <div class="PollRow">
                             <div class="PollButton">

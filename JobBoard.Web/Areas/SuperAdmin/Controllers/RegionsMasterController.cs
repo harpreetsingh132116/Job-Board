@@ -7,6 +7,8 @@ using System.Web.Mvc;
 
 namespace JobPortal.Areas.SuperAdmin.Controllers
 {
+    [Web.UserLogin]
+    [Web.RoleAuthorization]
     public class RegionsMasterController : Controller
     {
         private readonly BAL.Abstraction.IBALRegions _balRegions;

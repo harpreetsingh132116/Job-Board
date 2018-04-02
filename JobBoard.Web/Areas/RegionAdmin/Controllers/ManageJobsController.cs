@@ -1,5 +1,6 @@
 ﻿using JobPortal.BAL.Abstraction;
 using JobPortal.BAL.Common;
+using Microsoft.VisualBasic.FileIO;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -11,6 +12,8 @@ using System.Web.Mvc;
 
 namespace JobPortal.Areas.RegionAdmin.Controllers
 {
+    [Web.UserLogin]
+    [Web.RoleAuthorization]
     public class ManageJobsController : Controller
     {
         // GET: RegionAdmin/ManageJobs
@@ -184,127 +187,138 @@ namespace JobPortal.Areas.RegionAdmin.Controllers
             if (FileUpload != null)
             {
                 // tdata.ExecuteCommand("truncate table OtherCompanyAssets");  
-                if (FileUpload.ContentType == "application/vnd.ms-excel" || FileUpload.ContentType == "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
+
+                string filename = FileUpload.FileName;
+                if (!Directory.Exists(Server.MapPath("~/Doc/")))
                 {
+                    // Try to create the directory.
+                    DirectoryInfo di = Directory.CreateDirectory(Server.MapPath("~/Doc/"));
+                }
+                string targetpath = Server.MapPath("~/Doc/");
+                FileUpload.SaveAs(targetpath + filename);
+                string pathToExcelFile = targetpath + filename;
+
+                //  string sheetName = "Sheet1";
+
+                //var excelFile = new ExcelQueryFactory(pathToExcelFile);
+                //var artistAlbums = from a in excelFile.Worksheet<JobPortal.Core.Entity.JobEntity>(sheetName) select a;
+
+                DataTable dtable = GetDataTabletFromCSVFile(pathToExcelFile);
+
+                foreach (DataRow dr in dtable.Rows)
+                {
+                    JobPortal.Core.Entity.JobEntity jobEntity = new Core.Entity.JobEntity();
 
 
-                    string filename = FileUpload.FileName;
-                    if (!Directory.Exists(Server.MapPath("~/Doc/")))
+
+                    string region = Convert.ToString(dr["Region Name"]);
+                    if (!string.IsNullOrEmpty(region))
                     {
-                        // Try to create the directory.
-                        DirectoryInfo di = Directory.CreateDirectory(Server.MapPath("~/Doc/"));
-                    }
-                    string targetpath = Server.MapPath("~/Doc/");
-                    FileUpload.SaveAs(targetpath + filename);
-                    string pathToExcelFile = targetpath + filename;
-                    var connectionString = "";
-                    if (filename.EndsWith(".xls"))
-                    {
-                        connectionString = string.Format("Provider=Microsoft.Jet.OLEDB.4.0; data source={0}; Extended Properties=Excel 8.0;", pathToExcelFile);
-                    }
-                    else if (filename.EndsWith(".xlsx"))
-                    {
-                        connectionString = string.Format("Provider=Microsoft.ACE.OLEDB.12.0;Data Source={0};Extended Properties=\"Excel 12.0 Xml;HDR=YES;IMEX=1\";", pathToExcelFile);
-                    }
-
-                    var adapter = new OleDbDataAdapter("SELECT * FROM [Sheet1$]", connectionString);
-                    var ds = new DataSet();
-
-                    adapter.Fill(ds, "ExcelTable");
-
-                    DataTable dtable = ds.Tables["ExcelTable"];
-
-                    //  string sheetName = "Sheet1";
-
-                    //var excelFile = new ExcelQueryFactory(pathToExcelFile);
-                    //var artistAlbums = from a in excelFile.Worksheet<JobPortal.Core.Entity.JobEntity>(sheetName) select a;
-
-                    foreach (DataRow dr in dtable.Rows)
-                    {
-                        JobPortal.Core.Entity.JobEntity jobEntity = new Core.Entity.JobEntity();
-
-
-
-                        string region = Convert.ToString(dr["Region Name"]);
-                        if (!string.IsNullOrEmpty(region))
+                        var regiondetail = _bALRegions.GetRegionByName(region);
+                        if (regiondetail != null)
                         {
-                            var regiondetail = _bALRegions.GetRegionByName(region);
-                            if (regiondetail != null)
+                            jobEntity.RegionId = regiondetail.Id;
+                        }
+                    }
+
+                    string training = Convert.ToString(dr["TrainingName"]);
+                    string multipletrainings = string.Empty;
+                    foreach (string item in training.Split(','))
+                    {
+                        if (!string.IsNullOrEmpty(item))
+                        {
+                            var trainingdetail = _bALTraining.GetTrainingsByName(item);
+                            if (trainingdetail != null)
                             {
-                                jobEntity.RegionId = regiondetail.Id;
+                                multipletrainings += trainingdetail.ID + ",";
                             }
                         }
-
-                        string training = Convert.ToString(dr["TrainingName"]);
-                        string multipletrainings = string.Empty;
-                        foreach (string item in training.Split(','))
-                        {
-                            if (!string.IsNullOrEmpty(item))
-                            {
-                                var trainingdetail = _bALTraining.GetTrainingsByName(item);
-                                if (trainingdetail != null)
-                                {
-                                    multipletrainings += trainingdetail.ID + ",";
-                                }
-                            }
-                        }
-
-
-
-
-                        jobEntity.MultipleTrainingsAssignedCommaSeperated = multipletrainings.TrimEnd(',');
-                        jobEntity.JobTitle = dr["JobTitle"].ToString();
-                        jobEntity.JobDescription = dr["JobDescription"].ToString();
-
-                        int Status = 0;
-                        switch (Convert.ToString(dr["Status"]).ToLower())
-                        {
-                            case "open":
-                                Status = 1;
-                                break;
-                            case "in progress":
-                                Status = 2;
-                                break;
-                            case "completed":
-                                Status = 3;
-                                break;
-                            case "close":
-                                Status = 4;
-                                break;
-                        }
-
-                        jobEntity.Status = Status;
-
-                        _balService.InsertUpdate(jobEntity);
                     }
-                    //deleting excel file from folder  
-                    if ((System.IO.File.Exists(pathToExcelFile)))
+
+
+
+
+                    jobEntity.MultipleTrainingsAssignedCommaSeperated = multipletrainings.TrimEnd(',');
+                    jobEntity.JobTitle = dr["JobTitle"].ToString();
+                    jobEntity.JobDescription = dr["JobDescription"].ToString();
+                    jobEntity.JobNumber = Convert.ToString(dr["JobNumber"]);
+                    int Status = 0;
+                    switch (Convert.ToString(dr["Status"]).ToLower())
                     {
-                        System.IO.File.Delete(pathToExcelFile);
+                        case "open":
+                            Status = 1;
+                            break;
+                        case "in progress":
+                            Status = 2;
+                            break;
+                        case "completed":
+                            Status = 3;
+                            break;
+                        case "close":
+                            Status = 4;
+                            break;
                     }
-                    return RedirectToAction("index");
+
+                    jobEntity.Status = Status;
+
+                    _balService.InsertUpdate(jobEntity);
                 }
-                else
+                //deleting excel file from folder  
+                if ((System.IO.File.Exists(pathToExcelFile)))
                 {
-                    //alert message for invalid file format  
-                    data.Add("<ul>");
-                    data.Add("<li>Only Excel file format is allowed</li>");
-                    data.Add("</ul>");
-                    data.ToArray();
-                    return Json(data, JsonRequestBehavior.AllowGet);
+                    System.IO.File.Delete(pathToExcelFile);
                 }
+                return RedirectToAction("index");
             }
             else
             {
+                //alert message for invalid file format  
                 data.Add("<ul>");
-                if (FileUpload == null) data.Add("<li>Please choose Excel file</li>");
+                data.Add("<li>Only Excel file format is allowed</li>");
                 data.Add("</ul>");
                 data.ToArray();
                 return Json(data, JsonRequestBehavior.AllowGet);
             }
-
         }
 
+
+        private static DataTable GetDataTabletFromCSVFile(string csv_file_path)
+        {
+            DataTable csvData = new DataTable();
+            try
+            {
+                using (TextFieldParser csvReader = new TextFieldParser(csv_file_path))
+                {
+                    csvReader.SetDelimiters(new string[] { "," });
+                    csvReader.HasFieldsEnclosedInQuotes = true;
+                    string[] colFields = csvReader.ReadFields();
+                    foreach (string column in colFields)
+                    {
+                        DataColumn datecolumn = new DataColumn(column);
+                        datecolumn.AllowDBNull = true;
+                        csvData.Columns.Add(datecolumn);
+                    }
+                    while (!csvReader.EndOfData)
+                    {
+                        string[] fieldData = csvReader.ReadFields();
+                        //Making empty value as null
+                        for (int i = 0; i < fieldData.Length; i++)
+                        {
+                            if (fieldData[i] == "")
+                            {
+                                fieldData[i] = null;
+                            }
+                        }
+                        csvData.Rows.Add(fieldData);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            return csvData;
+        }
 
         public ActionResult JobsAssignedToEmp()
         {

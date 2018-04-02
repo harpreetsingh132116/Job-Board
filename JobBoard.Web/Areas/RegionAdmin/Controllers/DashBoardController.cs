@@ -6,6 +6,8 @@ using System.Web.Mvc;
 
 namespace JobPortal.Areas.RegionAdmin.Controllers
 {
+    [Web.UserLogin]
+    [Web.RoleAuthorization]
     public class DashBoardController : Controller
     {
         // GET: RegionAdmin/DashBoard
